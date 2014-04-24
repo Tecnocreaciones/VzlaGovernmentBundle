@@ -50,3 +50,11 @@ tecnocreaciones_vzla_government:
 sigtec:
     quantity_companies: Cantidad de compañias
     companies: Compañias
+    
+app:
+    backend:
+            menu:
+                sidebar:
+                    home: Home
+                    example: Example
+                    support: Support
