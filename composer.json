@@ -18,7 +18,8 @@
         "lunetics/locale-bundle": "2.2.*",
         "tecnocreaciones/ajax-fos-user-bundle": "dev-master",
         "friendsofsymfony/rest-bundle":"@stable",
-        "jms/serializer-bundle": "@stable"
+        "jms/serializer-bundle": "@stable",
+        "knplabs/knp-menu-bundle":"dev-master"
     },
     "autoload": {
         "psr-0": { "Tecnocreaciones\\Vzla\\GovernmentBundle": "" }
