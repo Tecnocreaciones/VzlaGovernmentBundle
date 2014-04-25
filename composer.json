@@ -19,7 +19,7 @@
         "tecnocreaciones/ajax-fos-user-bundle": "@stable",
         "friendsofsymfony/rest-bundle":"~1.4",
         "jms/serializer-bundle": "@stable",
-        "knplabs/knp-menu-bundle": "~2.0",
+        "knplabs/knp-menu-bundle": "~2.0@dev",
         "willdurand/js-translation-bundle": "@stable"
     },
     "autoload": {
