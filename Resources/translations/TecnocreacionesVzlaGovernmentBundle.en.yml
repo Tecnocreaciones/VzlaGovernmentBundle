@@ -57,5 +57,13 @@ tecnocreaciones_vzla_government:
                             client: Client
                             administrator: Administrator
                             super_administrator: Super Administrator
+                            
+                        search: Search
+                        show: Show
+                        with_selected: With selected
+                        entries_found: Entries found
+                        go: Go
+                        delete: Delete
+                        move_to_trash: Move to trash
 "Bad credentials": Username or Password invalid
     

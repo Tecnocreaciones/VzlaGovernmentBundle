@@ -1,5 +1,7 @@
 {% extends '::base.html.twig' %}
 
+{% trans_default_domain 'TecnocreacionesVzlaGovernmentBundle' %}
+
 {% block stylesheets %}
     <!-- Additional styles -->
     <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/styles/form3860.css?v=1') }}">
@@ -114,7 +116,7 @@
                     {{ 'tecnocreaciones_vzla_government.with_selected'|trans }}:
                     <select name="select90" class="select blue-gradient glossy mid-margin-left" style="width:128px">
                     <option value="0">{{ 'tecnocreaciones_vzla_government.delete'|trans }}</option>
-                    <option value="1">Move to trash</option>
+                    <option value="1">{{ 'tecnocreaciones_vzla_government.move_to_trash'|trans }}</option>
                     </select>
                     <button type="submit" class="button blue-gradient glossy">{{ 'tecnocreaciones_vzla_government.go'|trans }}</button>
                     &nbsp;&nbsp;&nbsp; [[ params.settings().total ]] {{ 'tecnocreaciones_vzla_government.entries_found'|trans }}
