@@ -16,6 +16,12 @@
         %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
+        {% set logo = templateConfig.getTemplateOption('developer','logo') %}
+        <style>
+            .form-door div {
+		background: url({{ asset(logo['login_watermark']) }}) no-repeat center top;
+            }
+        </style>
 {% endblock stylesheets %}
 
 {% block content %}

@@ -1,5 +1,7 @@
 {% trans_default_domain 'TecnocreacionesVzlaGovernmentBundle' %}
 
+{% set logo = templateConfig.getTemplateOption('developer','logo') %}
+    
 <section id="menu" role="complementary">
 
     <!-- This wrapper is used by several responsive layouts -->
@@ -35,7 +37,7 @@
         <ul class="unstyled-list">
             <li class="title-menu">&nbsp;</li>
             <li style="background-color:white;text-align:center" class="with-padding">
-                <img src="{{ asset(templateConfig.getTemplateOption('developer','logo')) }}" width="220px" height="80px" />
+                <img src="{{ asset(logo['panel_right']) }}" width="220px" height="80px" />
             </li>
     </ul>
         <div>
