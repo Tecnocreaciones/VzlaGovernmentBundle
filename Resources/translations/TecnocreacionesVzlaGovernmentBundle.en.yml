@@ -65,5 +65,7 @@ tecnocreaciones_vzla_government:
                         go: Go
                         delete: Delete
                         move_to_trash: Move to trash
+                        no: No
+                        yes: Yes
 "Bad credentials": Username or Password invalid
     

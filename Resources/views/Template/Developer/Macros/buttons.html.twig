@@ -43,7 +43,7 @@
     <script type="text/javascript">
         function openDeleteAjax(url,tableIdRow)
         {
-                $.modal.confirm('¿{{ message is empty ? 'tecnocreaciones_vzla_government.question.delete'|trans : message }}?', function()
+                $.modal.confirm('¿{{ message is empty ? 'tecnocreaciones_vzla_government.question.delete'|trans({},'messages') : message }}?', function()
                 {
                     $.ajax({
                       type: "POST",
@@ -108,7 +108,7 @@
         // Demo confirm
         function openDelete(idForm)
         {
-                $.modal.confirm('¿{{ message is empty ? 'tecnocreaciones_vzla_government.question.delete'|trans : message }}?', function()
+                $.modal.confirm('¿{{ message is empty ? 'tecnocreaciones_vzla_government.question.delete'|trans({},'messages') : message }}?', function()
                 {
                     $('#'+idForm).submit();
 

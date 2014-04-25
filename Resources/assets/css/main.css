@@ -1,6 +1,6 @@
 /* 
     Created on : 24/03/2014, 08:05:53 AM
-    Author     : Carlos Mendoza <inhack20@tecnocreaciones.com.ve>
+    Author     : Carlos Mendoza <inhack20@tecnocreaciones.com>
 */
 .main-frontend {
     margin: 10px auto;
@@ -83,6 +83,9 @@
     }
     #title-bar ~ #main {
         margin-top: 10px;
+    }
+    .main-frontend {
+        margin-left: 8px;
     }
 }
 @media only screen and (max-width: 992px) {

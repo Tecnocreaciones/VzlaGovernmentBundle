@@ -17,7 +17,7 @@ notifyModule.factory('notifyService',[function(){
                 notify(message,'', {
                                 system:		false,   
                                 autoClose:		4000,
-                                icon:               ConfApp.assetPath + 'bundles/coramersigtecweb/frontend/img/icons/icon-success.png',
+                                icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-success.png',
                                 iconOutside:        false,
                                 closeButton:        true,
                                 showCloseOnHover:	false,
@@ -28,7 +28,7 @@ notifyModule.factory('notifyService',[function(){
                 notify(message,'', {
                                 system:		false,   
                                 autoClose:		4000,
-                                icon:               ConfApp.assetPath + 'bundles/coramersigtecweb/frontend/img/icons/icon-error.png',
+                                icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-error.png',
                                 iconOutside:        false,
                                 closeButton:        true,
                                 showCloseOnHover:	false,

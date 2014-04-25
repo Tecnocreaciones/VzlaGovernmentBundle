@@ -14,7 +14,7 @@ namespace Tecnocreaciones\Vzla\GovernmentBundle\Twig\Extension;
 /**
  * Description of CoreExtension
  *
- * @author Carlos Mendoza <inhack20@tecnocreaciones.com.ve>
+ * @author Carlos Mendoza <inhack20@tecnocreaciones.com>
  */
 class CoreExtension extends \Twig_Extension
 {

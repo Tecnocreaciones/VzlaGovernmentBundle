@@ -1,0 +1,5 @@
+tecnocreaciones_vzla_government:
+                            no: No
+                            yes: Yes
+                            question:
+                                delete: You want to delete this item

@@ -69,6 +69,8 @@ tecnocreaciones_vzla_government:
                             go: Ir
                             delete: Eliminar
                             move_to_trash: Mover a la papelera
+                            no: No
+                            yes: Si
 "Bad credentials": Nombre de usuario o contraseña invalida
 
 app:
