@@ -10,17 +10,17 @@
 
         <header>
             {% if app.user.hasRole('ROLE_CLIENT') %}
-                {{ 'sigtec.role.client'|trans }}
+                {{ 'tecnocreaciones_vzla_government.role.client'|trans }}
             {% elseif app.user.hasRole('ROLE_ADMIN') %}
-                {{ 'sigtec.role.administrator'|trans }}
+                {{ 'tecnocreaciones_vzla_government.role.administrator'|trans }}
             {% elseif app.user.hasRole('ROLE_SUPER_ADMIN') %}
-                {{ 'sigtec.role.super_administrator'|trans }}
+                {{ 'tecnocreaciones_vzla_government.role.super_administrator'|trans }}
             {% endif %}
         </header>
 
         <div id="profile">
             <img src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/img/user.png') }}" width="64" height="64" alt="User name" class="user-icon">
-            {{ 'sigtec.hello' | trans }}
+            {{ 'tecnocreaciones_vzla_government.hello' | trans }}
             <span class="name">{{ app.user.firstName }} <b>{{ app.user.lastName }}</b></span>
         </div>
 

@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <script src="http://localhost/symfony/sigtec/web/angular/app/lib/ng-table/examples/js/jquery-1.9.1.min.js"></script>
+        <script src="http://localhost/symfony/tecnocreaciones_vzla_government/web/angular/app/lib/ng-table/examples/js/jquery-1.9.1.min.js"></script>
         <script src="js/angular.min.js"></script>
         <script src="../ng-table.js"></script>
         <link rel="stylesheet" href="../ng-table.css">
@@ -90,7 +90,7 @@
                 getData: function($defer, params) {
                     var parameters = params.url();
                     parameters.limit = parameters.count;
-                    $http.get('http://localhost/symfony/sigtec/web/app_dev.php/company/.json',{params : parameters }).success(function(data){
+                    $http.get('http://localhost/symfony/tecnocreaciones_vzla_government/web/app_dev.php/company/.json',{params : parameters }).success(function(data){
                         params.total(data._embedded.paginator.getNbResults);
                         $defer.resolve(data._embedded.results);
                     });

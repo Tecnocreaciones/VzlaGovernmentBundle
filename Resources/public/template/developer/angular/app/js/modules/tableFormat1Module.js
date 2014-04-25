@@ -26,7 +26,7 @@ var tableFormat1 = angular.module('tableFormat1', ['ngTable'])
                 document.location = url;
             }
             $scope.itemDelete = function(url){
-                $.modal.confirm('¿'+ sfTranslator.trans('sigtec.question.delete') +'?', function()
+                $.modal.confirm('¿'+ sfTranslator.trans('tecnocreaciones_vzla_government.question.delete') +'?', function()
                 {
                     $http.post(url,{_method:'DELETE'},{headers:{'X-Requested-With':'XMLHttpRequest'}}).success(function(data){
                         $.each(data.message,function(index, value){
@@ -44,8 +44,8 @@ var tableFormat1 = angular.module('tableFormat1', ['ngTable'])
                     });
                 }, function(){},
                 {
-                    textConfirm: sfTranslator.trans('sigtec.yes'),
-                    textCancel: sfTranslator.trans('sigtec.no')
+                    textConfirm: sfTranslator.trans('tecnocreaciones_vzla_government.yes'),
+                    textCancel: sfTranslator.trans('tecnocreaciones_vzla_government.no')
                 });
             }
             $scope.evalFooter = function(type,footer){

@@ -1,5 +1,6 @@
 # Login
 tecnocreaciones_vzla_government:
+                            edit: Editar
                             sign_in: Ingresar
                             remind_me: Recuerdame
                             login: Iniciar sesión
@@ -19,8 +20,10 @@ tecnocreaciones_vzla_government:
                             message_app_title: Nombre de la aplicación
                             message_footer: Todos los Derechos Reservados © 2014 CORAMER C.A
 
-                            profile: Perfil
                             logout: Salir
+                            
+                            quantity_companies: Cantidad de compañias
+                            companies: Compañias
                             
                             login:
                                 validators:
@@ -34,6 +37,7 @@ tecnocreaciones_vzla_government:
                                     sending_instructions: Enviando instrucciones
                             details: Detalles
                             profile:
+                                main: Perfil
                                 details: Detalles
                                 username: Nombre de usuario
                                 first_name: Nombre
@@ -44,13 +48,10 @@ tecnocreaciones_vzla_government:
                                 groups: Grupos
                                 update_password: Actualizar contraseña
                                 update: Actualizar
-
+                            
+                            hello: Hola
 "Bad credentials": Nombre de usuario o contraseña invalida
-    
-sigtec:
-    quantity_companies: Cantidad de compañias
-    companies: Compañias
-    
+
 app:
     backend:
             menu:

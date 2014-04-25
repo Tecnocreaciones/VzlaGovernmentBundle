@@ -39,5 +39,9 @@
                 <argument type="service" id="service_container" />
             </call>
         </service>
+        <service id="tecnocreaciones_vzla_government.core_extension" class="Tecnocreaciones\Vzla\GovernmentBundle\Twig\Extension\CoreExtension" public="false">
+            <tag name="twig.extension" />
+            <argument type="service" id="twig.loader" />
+        </service>
     </services>
 </container>
