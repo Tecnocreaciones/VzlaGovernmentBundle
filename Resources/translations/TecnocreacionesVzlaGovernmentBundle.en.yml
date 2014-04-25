@@ -1,5 +1,5 @@
 tecnocreaciones_vzla_government:
-                        edit: Edit
+                        #Login
                         sign_in: Sign in
                         remind_me: Remind me
                         enable_auto_login: Enable auto-login
@@ -46,5 +46,16 @@ tecnocreaciones_vzla_government:
                             update: Update
                         
                         hello: Hello
+                        
+                        #Buttons
+                        edit: Edit
+                        save: Save
+                        cancel: Cancel
+                        
+                        #Roles
+                        role:
+                            client: Client
+                            administrator: Administrator
+                            super_administrator: Super Administrator
 "Bad credentials": Username or Password invalid
     

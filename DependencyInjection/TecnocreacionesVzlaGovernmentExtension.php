@@ -26,7 +26,6 @@ class TecnocreacionesVzlaGovernmentExtension extends Extension
         $loader->load('services.xml');
         
         $container->setParameter('tecnocreaciones_vzla_government.menu_builder.developer.class', $config['template']['developer']['menu']);
-        $container->setParameter('tecnocreaciones_vzla_government.menu_builder.developer.logo', $config['template']['developer']['logo']);
         
         $templatesConfig = array();
         $templatesConfig['developer']= $config['template']['developer'];

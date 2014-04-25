@@ -1,6 +1,6 @@
 # Login
 tecnocreaciones_vzla_government:
-                            edit: Editar
+                            #Login
                             sign_in: Ingresar
                             remind_me: Recuerdame
                             login: Iniciar sesión
@@ -50,6 +50,17 @@ tecnocreaciones_vzla_government:
                                 update: Actualizar
                             
                             hello: Hola
+                            
+                            #Buttons
+                            edit: Editar
+                            save: Guardar
+                            cancel: Cancelar
+                            
+                            #Roles
+                            role:
+                                client: Cliente
+                                administrator: Administrador
+                                super_administrator: Super Administrador
 "Bad credentials": Nombre de usuario o contraseña invalida
 
 app:

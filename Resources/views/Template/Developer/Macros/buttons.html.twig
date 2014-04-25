@@ -1,3 +1,5 @@
+{% trans_default_domain 'TecnocreacionesVzlaGovernmentBundle' %}
+
 {% macro show(url, message) %}
 <a href="{{ url }}" class="btn btn-default">
    <i class="glyphicon glyphicon-book"></i><span>{{ message is empty ? 'sms_facilito.show'|trans : message }}</span>
