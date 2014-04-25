@@ -18,7 +18,7 @@ tecnocreaciones_vzla_government:
 
                             message_header_center: Cabecera de la aplicación
                             message_app_title: Nombre de la aplicación
-                            message_footer: Todos los Derechos Reservados © 2014 CORAMER C.A
+                            message_footer: Footer de la aplicacion
 
                             logout: Salir
                             
