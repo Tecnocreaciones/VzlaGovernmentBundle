@@ -16,10 +16,10 @@
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.1",
         "lunetics/locale-bundle": "~2.2",
-        "tecnocreaciones/ajax-fos-user-bundle": "dev-master",
-        "friendsofsymfony/rest-bundle":"@stable",
+        "tecnocreaciones/ajax-fos-user-bundle": "@stable",
+        "friendsofsymfony/rest-bundle":"~1.4@dev",
         "jms/serializer-bundle": "@stable",
-        "knplabs/knp-menu-bundle": "~2.0",
+        "knplabs/knp-menu-bundle": "~2.0@dev",
         "willdurand/js-translation-bundle": "@stable"
     },
     "autoload": {
