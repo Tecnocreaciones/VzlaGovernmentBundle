@@ -19,7 +19,8 @@
         "tecnocreaciones/ajax-fos-user-bundle": "dev-master",
         "friendsofsymfony/rest-bundle":"@stable",
         "jms/serializer-bundle": "@stable",
-        "knplabs/knp-menu-bundle": "2.0.*@dev"
+        "knplabs/knp-menu-bundle": "2.0.*@dev",
+        "jms/translation-bundle": "~1.1@dev"
     },
     "autoload": {
         "psr-0": { "Tecnocreaciones\\Vzla\\GovernmentBundle": "" }
