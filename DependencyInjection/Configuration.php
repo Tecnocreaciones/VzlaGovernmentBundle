@@ -37,6 +37,8 @@ class Configuration implements ConfigurationInterface
                                         ->children()
                                             ->scalarNode('login_watermark')->defaultValue('bundles/tecnocreacionesvzlagovernment/template/developer/img/favicons/watermark.png')->cannotBeEmpty()->end()
                                             ->scalarNode('panel_right')->defaultValue('bundles/tecnocreacionesvzlagovernment/template/developer/img/favicons/logo.png')->cannotBeEmpty()->end()
+                                            ->scalarNode('icon_png')->defaultValue('bundles/tecnocreacionesvzlagovernment/template/developer/img/favicons/favicon.png')->cannotBeEmpty()->end()
+                                            ->scalarNode('icon_ico')->defaultValue('bundles/tecnocreacionesvzlagovernment/template/developer/img/favicons/favicon.ico')->cannotBeEmpty()->end()
                                         ->end()
                                 ->end()
                         ->end()
