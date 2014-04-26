@@ -28,6 +28,7 @@ class Configuration implements ConfigurationInterface
                             ->arrayNode('developer')
                                 ->addDefaultsIfNotSet()
                                 ->children()
+                                    ->scalarNode('app_title')->defaultValue('appTitle')->cannotBeEmpty()->end()
                                     ->scalarNode('menu')->defaultValue('Tecnocreaciones\Vzla\GovernmentBundle\Menu\Template\Developer\BackendMenuBuilder')->cannotBeEmpty()->end()
                                     ->arrayNode('angular_dependencies')
                                         ->prototype('scalar')->end()

@@ -22,23 +22,24 @@ class TemplateConfig implements \Symfony\Component\DependencyInjection\Container
     
     private $container;
     
-    private $defaultOptions = array(
-            'menu'              => array(),
-            'logo'              => array(),
+    private $defaultTemplateOptions = array(
+            'app_title'         => 'appTitle',
+            'menu'              => '',
+            'logo'              => 'logo.png',
             'angular_dependencies'              => array(),
         );
             
-    function setOptions($template, array $options) {
+    function setTemplateOptions($template, array $options) {
         
-        $defaultOptions = $this->defaultOptions;
+        $defaultTemplateOptions = $this->defaultTemplateOptions;
         // check option names and live merge, if errors are encountered Exception will be thrown
         $invalid = array();
         foreach ($options as $key => $value) {
-            if (array_key_exists($key, $defaultOptions)) {
+            if (array_key_exists($key, $defaultTemplateOptions)) {
                 if($key == 'angular_dependencies'){
                     $value = $this->fixDependencies($value);
                 }
-                $defaultOptions[$key] = $value;
+                $defaultTemplateOptions[$key] = $value;
             } else {
                 $invalid[] = $key;
             }
@@ -47,26 +48,26 @@ class TemplateConfig implements \Symfony\Component\DependencyInjection\Container
         if ($invalid) {
             throw new \InvalidArgumentException(sprintf('The Template does not support the following options: "%s".', implode('", "', $invalid)));
         }
-        $this->templates[$template] = $defaultOptions;
+        $this->templates[$template] = $defaultTemplateOptions;
     }
             
     function getTemplateOptions($template)
     {
-        return $this->getOptions($template);
+        return $this->getTemplate($template);
     }
     
     function getTemplateOption($template,$option = null)
     {
-        return $this->getOptions($template,$option);
+        return $this->getTemplate($template,$option);
     }
     
-    function getOptions($template,$option = null) {
+    function getTemplate($template,$option = null) {
         if(!isset($this->templates[$template])){
             throw new \InvalidArgumentException(sprintf('The template "%s" does not exist, are available: "%s".',$template, implode('", "', array_keys($this->templates))));
         }
         if($option != null){
             if(!$this->isValidOption($option )){
-                throw new \InvalidArgumentException(sprintf('The Template does not support the following options: "%s".',$template, implode('", "', array_keys($this->defaultOptions))));
+                throw new \InvalidArgumentException(sprintf('The Template does not support the following options: "%s".',$template, implode('", "', array_keys($this->defaultTemplateOptions))));
             }
             return $this->templates[$template][$option];
         }
@@ -74,14 +75,14 @@ class TemplateConfig implements \Symfony\Component\DependencyInjection\Container
     }
     
     public function isValidOption($option) {
-        return isset($this->defaultOptions[$option]);
+        return isset($this->defaultTemplateOptions[$option]);
     }
     
     public function setTemplates(array $templates)
     {
         $this->templates = $templates;
         foreach ($templates as $template => $options) {
-            $this->setOptions($template, $options);
+            $this->setTemplateOptions($template, $options);
         }
     }
     
