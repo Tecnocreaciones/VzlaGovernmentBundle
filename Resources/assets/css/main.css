@@ -74,6 +74,10 @@
 	background: linear-gradient(top, #c74848, #ad1212);
 }
 
+.input-mini {
+    width: 40px;
+}
+
 @media only screen and (min-width: 992px) {
     #title-bar ~ #menu, #title-bar ~ #shortcuts{
         top:0px;
