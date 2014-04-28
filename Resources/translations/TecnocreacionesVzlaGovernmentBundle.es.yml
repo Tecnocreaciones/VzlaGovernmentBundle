@@ -72,6 +72,7 @@ tecnocreaciones_vzla_government:
                             no: No
                             yes: Si
 "Bad credentials": Nombre de usuario o contraseña invalida
+"User account is disabled.": Cuenta de usuario desactivada
 
 app:
     backend:
