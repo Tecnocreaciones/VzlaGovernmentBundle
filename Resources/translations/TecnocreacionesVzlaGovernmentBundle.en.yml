@@ -67,5 +67,8 @@ tecnocreaciones_vzla_government:
                         move_to_trash: Move to trash
                         no: No
                         yes: Yes
+                        selected: Selected 
+                        all: All
+                        search: Search
 "Bad credentials": Username or Password invalid
 "User account is disabled.": User account is disabled

@@ -71,6 +71,9 @@ tecnocreaciones_vzla_government:
                             move_to_trash: Mover a la papelera
                             no: No
                             yes: Si
+                            selected: Seleccionado(s)
+                            all: Todos
+                            search: Buscar
 "Bad credentials": Nombre de usuario o contraseña invalida
 "User account is disabled.": Cuenta de usuario desactivada
 

@@ -30,6 +30,10 @@
 {
     font-size: 18px;
 }
+.breadcrumb > span {
+    font-size: 15px;
+    color: #b3b5b8;
+}
 .logo-menu-mobile{
     position: absolute;
     z-index: 5;
