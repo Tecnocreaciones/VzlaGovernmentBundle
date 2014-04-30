@@ -74,6 +74,11 @@ tecnocreaciones_vzla_government:
                             selected: Seleccionado(s)
                             all: Todos
                             search: Buscar
+                            notify:
+                                one_similar_notification: Una notificación similar
+                                n_similar_notifications: %d notificaciones similares
+                                one_more_notification: Una notificación mas
+                                n_more_notifications: %d notificaciones mas
 "Bad credentials": Nombre de usuario o contraseña invalida
 "User account is disabled.": Cuenta de usuario desactivada
 

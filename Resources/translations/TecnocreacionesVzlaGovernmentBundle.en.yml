@@ -70,5 +70,10 @@ tecnocreaciones_vzla_government:
                         selected: Selected 
                         all: All
                         search: Search
+                        notify:
+                            one_similar_notification: One similar notification
+                            n_similar_notifications: %d similar notifications
+                            one_more_notification: One more notification
+                            n_more_notifications: %d more notifications
 "Bad credentials": Username or Password invalid
 "User account is disabled.": User account is disabled
