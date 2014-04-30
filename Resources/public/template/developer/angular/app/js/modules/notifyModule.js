@@ -14,26 +14,56 @@ notifyModule.factory('notifyService',[function(){
         
         return {
             success: function(message){
-                notify(message,'', {
-                                system:		false,   
-                                autoClose:		4000,
-                                icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-success.png',
-                                iconOutside:        false,
-                                closeButton:        true,
-                                showCloseOnHover:	false,
-                                groupSimilar:	true
+                if(message instanceof Array){
+                    $.each(message,function(index, value){
+                                notify(value,'', {
+                                    system:		false,   
+                                    autoClose:		4000,
+                                    icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-success.png',
+                                    iconOutside:        false,
+                                    closeButton:        true,
+                                    showCloseOnHover:	false,
+                                    groupSimilar:	true
+                                });
                             });
+                }else{
+                    notify(message,'', {
+                            system:		false,   
+                            autoClose:		4000,
+                            icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-success.png',
+                            iconOutside:        false,
+                            closeButton:        true,
+                            showCloseOnHover:	false,
+                            groupSimilar:	true
+                    });
+                }
+                
             },
             error: function(message){
-                notify(message,'', {
-                                system:		false,   
-                                autoClose:		4000,
-                                icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-error.png',
-                                iconOutside:        false,
-                                closeButton:        true,
-                                showCloseOnHover:	false,
-                                groupSimilar:	true
-                            });
+                if(message instanceof Array){
+                    $.each(message,function(index, value){
+                        notify(value,'', {
+                            system:		false,   
+                            autoClose:		4000,
+                            icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-error.png',
+                            iconOutside:        false,
+                            closeButton:        true,
+                            showCloseOnHover:	false,
+                            groupSimilar:	true
+                        }); 
+                    });
+                }else{
+                    notify(message,'', {
+                        system:		false,   
+                        autoClose:		4000,
+                        icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-error.png',
+                        iconOutside:        false,
+                        closeButton:        true,
+                        showCloseOnHover:	false,
+                        groupSimilar:	true
+                    });
+                    
+                }
             }
         }
 }]);

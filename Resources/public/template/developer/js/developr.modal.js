@@ -1113,6 +1113,77 @@
 		// Open modal
 		$.modal(options);
 	};
+        
+	/**
+	 * Display a prompt
+	 * @param string message the message, as text or html
+	 * @param function callback the function called with the user value: function(value). Can return false to prevent close.
+	 * @param function cancelCallback a callback for when the user closes the modal or click on Cancel. Can return false to prevent close.
+	 * @param object options same as $.modal() (optional)
+	 * @return jQuery the new window
+	 */
+	$.modal.showForm = function(message, callback, cancelCallback, options)
+	{
+                var isSubmitted = false, onClose;
+
+		// Params
+		if (typeof cancelCallback !== 'function')
+		{
+			options = cancelCallback;
+			cancelCallback = null;
+		}
+		options = $.extend({}, $.modal.defaults.showFormOptions, options || {});
+
+		// Cancel callback
+		if (cancelCallback)
+		{
+			onClose = options.onClose;
+			options.onClose = function(event)
+			{
+				// Check
+				if (!isSubmitted && cancelCallback.call(this) === false)
+				{
+					return false;
+				}
+
+				// Previous onClose, if any
+				if (onClose)
+				{
+					onClose.call(this, event);
+				}
+			};
+		}
+
+		// Content
+		options.content = message;
+
+		// Buttons
+		options.buttons = {};
+		options.buttons[ options.textCancel ] = {
+			classes :	'glossy',
+			click :		function(modal) { modal.closeModal(); }
+		};
+		options.buttons[ options.textSubmit ] = {
+			classes :	'blue-gradient glossy',
+			click :		function(modal)
+			{
+				// Mark as sumbmitted to prevent the cancel callback to fire
+				isSubmitted = true;
+
+				// Callback
+				if (callback.call(modal[0]) === false)
+				{
+                                    return;
+				}
+
+				// Close modal
+				modal.closeModal();
+			}
+		};
+
+		// Open modal
+		$.modal(options);
+	};
 
 	/**
 	 * Wraps the selected elements content in a new modal window.
@@ -1667,7 +1738,28 @@
 			 * @var string
 			 */
 			textConfirm: 'Confirm'
-		}
+		},
+		/**
+		 * Default options for showForm() method
+		 * @var object
+		 */
+		showFormOptions: {
+			minWidth:		500,
+                        width:			false,
+			buttonsAlign:	'center',
+
+			/**
+			 * Text for cancel button for prompt windows
+			 * @var string
+			 */
+			textCancel: 'Cancel',
+
+			/**
+			 * Text for submit button for prompt windows
+			 * @var string
+			 */
+			textSubmit: 'Submit'
+		},
 	};
 
 })(jQuery, window, document);
