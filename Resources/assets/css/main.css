@@ -23,6 +23,9 @@
 .input-large {
     min-width: 200px;
 }
+.input-small {
+    min-width: 100px;
+}
 .list-style-none {
     list-style-type: none;
 }
