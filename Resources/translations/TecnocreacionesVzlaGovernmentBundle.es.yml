@@ -22,9 +22,6 @@ tecnocreaciones_vzla_government:
 
                             logout: Salir
                             
-                            quantity_companies: Cantidad de compañias
-                            companies: Compañias
-                            
                             login:
                                 validators:
                                     please_fill_in_your_login: Por favor, ingrese su nombre de usuario
@@ -37,7 +34,7 @@ tecnocreaciones_vzla_government:
                                     sending_instructions: Enviando instrucciones
                             details: Detalles
                             profile:
-                                main: Perfil
+                                profile: Perfil
                                 details: Detalles
                                 username: Nombre de usuario
                                 first_name: Nombre
@@ -81,11 +78,7 @@ tecnocreaciones_vzla_government:
                                 n_more_notifications: %d notificaciones mas
 "Bad credentials": Nombre de usuario o contraseña invalida
 "User account is disabled.": Cuenta de usuario desactivada
-
-app:
-    backend:
-            menu:
-                sidebar:
-                    home: Home
-                    example: Example
-                    support: Support
+                    
+form:
+    first_name: Nombre
+    last_name: Apellido

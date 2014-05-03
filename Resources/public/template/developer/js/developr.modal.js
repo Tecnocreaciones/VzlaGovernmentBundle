@@ -1122,7 +1122,7 @@
 	 * @param object options same as $.modal() (optional)
 	 * @return jQuery the new window
 	 */
-	$.modal.showForm = function(message, callback, cancelCallback, options)
+	$.modal.showForm = function(message, confirmCallback, cancelCallback, options)
 	{
                 var isSubmitted = false, onClose;
 
@@ -1167,11 +1167,11 @@
 			classes :	'blue-gradient glossy',
 			click :		function(modal)
 			{
-				// Mark as sumbmitted to prevent the cancel callback to fire
+				// Mark as sumbmitted to prevent the cancel confirmCallback to fire
 				isSubmitted = true;
 
 				// Callback
-				if (callback.call(modal[0]) === false)
+				if (confirmCallback(modal) === false)
 				{
                                     return;
 				}
@@ -1183,6 +1183,26 @@
 
 		// Open modal
 		$.modal(options);
+	};
+        
+	/**
+	 * Display a prompt
+	 * @param string message the message, as text or html
+	 * @param function callback the function called with the user value: function(value). Can return false to prevent close.
+	 * @param function cancelCallback a callback for when the user closes the modal or click on Cancel. Can return false to prevent close.
+	 * @param object options same as $.modal() (optional)
+	 * @return jQuery the new window
+	 */
+	$.modal.preBuildShowForm = function(message, callback, cancelCallback, options)
+	{
+                
+		options = $.extend({}, $.modal.defaults.showFormOptions, options || {});
+
+		// Content
+		options.content = message;
+		// Open modal
+		var r = $.modal(options);
+                r.closeModal();
 	};
 
 	/**
