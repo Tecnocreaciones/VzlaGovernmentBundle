@@ -6,11 +6,19 @@
 </a>
 {% endmacro %}
 
-{% macro generic(url, message, icon) %}
-<a href="{{ url }}" class="button">
-    {% if icon is not empty %}<span class="button-icon left-side"><span class="{{ icon }}"></span></span>{% endif %}
-    {{ message |trans }}
-</a>
+{% macro generic(url, message='generic', icon = 'icon-pencil', parameters = {}) %}
+    {% set gradient = 'blue-gradient' %}
+    {% set translation_domain = 'messages' %}
+    {% if parameters['translation_domain'] is defined %}
+        {% set translation_domain = parameters['translation_domain'] %}
+    {% endif  %}
+    {% if parameters['gradient'] is defined %}
+        {% set gradient = parameters['gradient'] %}
+    {% endif  %}
+    <a href="{{ url }}" class="button">
+        <span class="button-icon left-side {{ gradient }}"><span class="{{ icon }}"></span></span>
+        {{ message|trans({},translation_domain) }}
+    </a>
 {% endmacro %}
 
 {% macro create(url, message) %}
@@ -64,7 +72,18 @@
                                     groupSimilar:	true
                                 });
                         });
-                    }).fail(function(data){
+                    }).error(function(data,textStatus,errorThrown){
+                        if(data.status != undefined && data.status == 403){
+                           notify('{{ 'Permission Denied!'|trans({},'messages') }}','', {
+                                    system:		false,   
+                                    autoClose:		4000,
+                                    icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-error.png',
+                                    iconOutside:        false,
+                                    closeButton:        true,
+                                    showCloseOnHover:	false,
+                                    groupSimilar:	true
+                                });
+                        }
                         $.each(data.message,function(index,value){
                             notify(value,'', {
                                     system:		false,   

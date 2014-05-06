@@ -21,7 +21,7 @@ var tableFormat1 = angular.module('tableFormat1', ['ngTable'])
                 }
             };
         })
-        .controller('TableFormatController', function($scope, ngTableParams, $http,sfTranslator) {
+        .controller('TableFormatController', function($scope, ngTableParams, $http,sfTranslator,notifyService) {
             $scope.itemEdit = function(url){
                 document.location = url;
             }
@@ -30,17 +30,13 @@ var tableFormat1 = angular.module('tableFormat1', ['ngTable'])
                 {
                     $http.post(url,{_method:'DELETE'},{headers:{'X-Requested-With':'XMLHttpRequest'}}).success(function(data){
                         $.each(data.message,function(index, value){
-                            notify(value,'', {
-                                system:		false,   
-                                autoClose:		4000,
-                                icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-success.png',
-                                iconOutside:        false,
-                                closeButton:        true,
-                                showCloseOnHover:	false,
-                                groupSimilar:	true
-                            });
+                            notifyService.success(value);
                         });
                         $scope.tableParams.reload();
+                    }).error(function(data, status){
+                        if(status == 403){
+                            notifyService.error(sfTranslator.trans('Permission Denied!'));
+                        }
                     });
                 }, function(){},
                 {

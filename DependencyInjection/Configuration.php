@@ -22,6 +22,14 @@ class Configuration implements ConfigurationInterface
         
         $rootNode
                 ->children()
+                    ->arrayNode('config')
+                        ->addDefaultsIfNotSet()
+                        ->children()
+                            ->scalarNode('main_route')->defaultNull()->cannotBeEmpty()->end()
+                        ->end()
+                    ->end()
+                ->end()
+                ->children()
                     ->arrayNode('template')
                         ->addDefaultsIfNotSet()
                         ->children()

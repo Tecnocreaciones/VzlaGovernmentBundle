@@ -29,10 +29,10 @@ class TecnocreacionesVzlaGovernmentExtension extends Extension
         
         $templatesConfig = array();
         $templatesConfig['developer']= $config['template']['developer'];
-        
         $globalConfig = $container->getDefinition('tecnocreaciones_vzla_government.global_config');
         
         $globalConfig->addMethodCall('setTemplates',array($templatesConfig));
+        $globalConfig->addMethodCall('setOptions',array($config['config']));
         
     }
 }

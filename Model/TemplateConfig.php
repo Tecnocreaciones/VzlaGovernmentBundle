@@ -22,6 +22,8 @@ class TemplateConfig implements \Symfony\Component\DependencyInjection\Container
     
     private $container;
     
+    private $options = array();
+
     private $defaultTemplateOptions = array(
             'app_title'         => 'appTitle',
             'menu'              => '',
@@ -50,6 +52,25 @@ class TemplateConfig implements \Symfony\Component\DependencyInjection\Container
         }
         $this->templates[$template] = $defaultTemplateOptions;
     }
+    
+    function setOptions(array $options) {
+        $defaultOptions = array(
+            'main_route' => null,
+        );
+        // check option names and live merge, if errors are encountered Exception will be thrown
+        $invalid = array();
+        foreach ($options as $key => $value) {
+            if (array_key_exists($key, $defaultOptions)) {
+                $this->options[$key] = $value;
+            } else {
+                $invalid[] = $key;
+            }
+        }
+
+        if ($invalid) {
+            throw new \InvalidArgumentException(sprintf('The Config Template does not support the following options: "%s".', implode('", "', $invalid)));
+        }
+    }
             
     function getTemplateOptions($template)
     {
@@ -72,6 +93,14 @@ class TemplateConfig implements \Symfony\Component\DependencyInjection\Container
             return $this->templates[$template][$option];
         }
         return $this->templates[$template];
+    }
+    
+    function getOption($key = null)
+    {
+        if (!array_key_exists($key, $this->options)) {
+            throw new \InvalidArgumentException(sprintf('The Template Config does not support the following options: "%s".',$key));
+        }
+        return $this->options[$key];
     }
     
     public function isValidOption($option) {
