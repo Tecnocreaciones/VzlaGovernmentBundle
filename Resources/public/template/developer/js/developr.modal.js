@@ -1182,7 +1182,7 @@
 		};
 
 		// Open modal
-		$.modal(options);
+		return $.modal(options);
 	};
         
 	/**
@@ -1203,6 +1203,7 @@
 		// Open modal
 		var r = $.modal(options);
                 r.closeModal();
+                return r;
 	};
 
 	/**
