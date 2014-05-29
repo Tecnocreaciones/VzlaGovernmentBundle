@@ -25,6 +25,19 @@ class CoreExtension extends \Twig_Extension
         );
     }
     
+//    public function getFunctions() {
+//        return array(
+//            new \Twig_SimpleFunction('staticCall', array($this,'staticCall')),
+//        );
+//    }
+//    
+//    function staticCall($class, $function, $args = array())
+//    {
+//        if (class_exists($class) && method_exists($class, $function))
+//            return call_user_func_array(array($class, $function), $args);
+//        return null;
+//    }
+    
     function generateHash($str) {
         return md5($str);
     }

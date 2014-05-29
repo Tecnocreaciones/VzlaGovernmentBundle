@@ -1,5 +1,5 @@
 mainApp.requires.push('tableFormat1');
-var tableFormat1 = angular.module('tableFormat1', ['ngTable'])
+var tableFormat1 = angular.module('tableFormat1', ['ngTable','ngTableExport'])
         .directive('loadingContainer', function() {
             return {
                 restrict: 'A',

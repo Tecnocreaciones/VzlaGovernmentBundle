@@ -44,6 +44,12 @@
 
 {% block javascript %}
     {{ parent() }}
+    <script type="text/ng-template" id="ng-table/filters/select.html">
+        <select ng-options="data.id as data.title for data in column.data" ng-model="params.filter()[name]" ng-show="filter=='select'" class="select auto-refresh expandable-list input-small" name="[[column.filterName]]"> </select>
+    </script>
+    <script type="text/ng-template" id="ng-table/filters/text.html">
+        <input type="text" name="[[ column.filterName ]]" ng-model="params.filter()[name]" ng-if="filter=='text'" class="input input-small"/>
+    </script>
     <script type="text/ng-template" id="ng-table/headers/checkbox.html">
                     <input type="checkbox" ng-model="checkboxes.checked" id="select_all" name="filter-checkbox" value="" />
                 </script>
@@ -62,6 +68,7 @@
                     </select>
                     <button ng-click="tableParams.reload()" class="button pull-right icon-refresh icon-size2 blue-gradient glossy" title="{{ 'tecnocreaciones_vzla_government.reload'|trans }}" ></button>
                     <button ng-click="tableParams.sorting({})" class="button pull-right icon-cross-round icon-size2 blue-gradient glossy" title="{{ 'tecnocreaciones_vzla_government.clear_sorting'|trans }}"></button>
+                    <a ng-href="[[ csv.link() ]]"  class="button pull-right icon-download icon-size2 blue-gradient glossy" ng-mousedown="csv.generate()" download="{{ 'tecnocreaciones_vzla_government.content'|trans }}.csv" title="{{ 'tecnocreaciones_vzla_government.export_to_csv'|trans }}">{{ 'tecnocreaciones_vzla_government.export_to_csv'|trans }}</a>
                 </div>
         </td>
         </tr>
@@ -112,14 +119,16 @@
                         </a>
                         </div>
                     </div>
-
-                    {{ 'tecnocreaciones_vzla_government.with_selected'|trans }}:
-                    <select name="select90" class="select blue-gradient glossy mid-margin-left" style="width:128px">
-                    <option value="0">{{ 'tecnocreaciones_vzla_government.delete'|trans }}</option>
-                    <option value="1">{{ 'tecnocreaciones_vzla_government.move_to_trash'|trans }}</option>
-                    </select>
-                    <button type="submit" class="button blue-gradient glossy">{{ 'tecnocreaciones_vzla_government.go'|trans }}</button>
-                    &nbsp;&nbsp;&nbsp; [[ params.settings().total ]] {{ 'tecnocreaciones_vzla_government.entries_found'|trans }}
+                    {#
+                        {{ 'tecnocreaciones_vzla_government.with_selected'|trans }}:
+                        <select name="select90" class="select blue-gradient glossy mid-margin-left" style="width:128px">
+                        <option value="0">{{ 'tecnocreaciones_vzla_government.delete'|trans }}</option>
+                        <option value="1">{{ 'tecnocreaciones_vzla_government.move_to_trash'|trans }}</option>
+                        </select>
+                        <button type="submit" class="button blue-gradient glossy">{{ 'tecnocreaciones_vzla_government.go'|trans }}</button>
+                        &nbsp;&nbsp;&nbsp; 
+                    #}
+                    [[ params.settings().total ]] {{ 'tecnocreaciones_vzla_government.entries_found'|trans }}
                     </form>
                 </script>
 

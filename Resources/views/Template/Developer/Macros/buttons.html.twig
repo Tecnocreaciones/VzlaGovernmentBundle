@@ -49,7 +49,7 @@
                 //$.modal.showForm(area,confirmFormModal,cancelFormModal,options);
                 $.modal.showForm(content,function(){
                     $('#'+idForm).submit();
-                },null,{});
+                },null,{title: '{{ message|trans({},translation_domain) }}' });
             }
         </script>
 {% endmacro %}

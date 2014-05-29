@@ -14,6 +14,10 @@ tecnocreaciones_vzla_government:
                         message_register: New user? Yay! Let us know a little bit about you before you start
                         your_name: Your name
                         registration: Register
+                        clear_sorting: Clear sorting
+                        reload: Reload
+                        content: Content
+                        export_to_csv: Export to CVS
 
                         message_header_center: App Header
                         message_app_title: Message App Name

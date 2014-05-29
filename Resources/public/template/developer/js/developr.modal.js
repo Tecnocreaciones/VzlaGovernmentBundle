@@ -1126,14 +1126,7 @@
 	{
                 var isSubmitted = false, onClose;
 
-		// Params
-		if (typeof cancelCallback !== 'function')
-		{
-			options = cancelCallback;
-			cancelCallback = null;
-		}
 		options = $.extend({}, $.modal.defaults.showFormOptions, options || {});
-
 		// Cancel callback
 		if (cancelCallback)
 		{

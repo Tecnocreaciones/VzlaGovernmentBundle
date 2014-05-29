@@ -2665,7 +2665,7 @@
 		doc.on('click', '.select-arrow, span.select-value', function(event)
 		{
 			var select = $(this).parent();
-			if (select.hasClass('auto-refesh'))
+			if (select.hasClass('auto-refresh'))
 			{
                                 _refreshSelectValues.apply(select[0]);
 			}

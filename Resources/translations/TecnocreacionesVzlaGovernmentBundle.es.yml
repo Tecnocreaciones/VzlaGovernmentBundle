@@ -15,11 +15,15 @@ tecnocreaciones_vzla_government:
                             message_register: ¿Nuevo usuario? Yay! Háganos saber un poquito acerca de usted antes de empezar
                             your_name: Su nombre
                             registration: Registro
+                            clear_sorting: Borrar selección
+                            reload: Refrescar
+                            content: Contenido
+                            export_to_csv: Exportar a CVS
 
                             message_header_center: Cabecera de la aplicación
                             message_app_title: Nombre de la aplicación
                             message_footer: Footer de la aplicacion
-
+                            
                             logout: Salir
                             
                             login:
