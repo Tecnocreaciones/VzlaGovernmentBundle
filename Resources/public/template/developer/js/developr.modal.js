@@ -1354,7 +1354,7 @@
 		{
 			var modal = $(this).getModalWindow(),
 				data = (modal.length > 0) ? modal.data('modal') : false;
-
+                                
 			// If valid
 			if (data)
 			{
@@ -1580,7 +1580,7 @@
 		 * @var boolean
 		 */
 		actions: {
-			'Close' : {
+			'Cerrar' : {
 				color: 'red',
 				click: function(modal) { modal.closeModal(); }
 			}
@@ -1615,7 +1615,7 @@
 		 * @var object
 		 */
 		buttons: {
-			'Close': {
+			'Cerrar': {
 				classes :	'blue-gradient glossy big full-width',
 				click :		function(modal) { modal.closeModal(); }
 			}
@@ -1779,7 +1779,8 @@
 			 * Text for submit button for prompt windows
 			 * @var string
 			 */
-			textSubmit: 'Submit'
+			textSubmit: 'Submit',
+                        title: ' '
 		},
 	};
 

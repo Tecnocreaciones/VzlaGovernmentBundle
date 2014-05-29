@@ -89,6 +89,10 @@
     font-weight: bold;
 }
 
+.color-white {
+    background: #b3b5b8;
+}
+
 // Alignment
 .text-left           { text-align: left; }
 .text-right          { text-align: right; }

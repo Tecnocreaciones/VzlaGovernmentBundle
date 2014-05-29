@@ -21,6 +21,39 @@
     </a>
 {% endmacro %}
 
+{% macro generic_modal(url, message='generic', parameters = {}) %}
+    {% set gradient = 'blue-gradient' %}
+    {% set translation_domain = 'messages' %}
+    {% set content = 'messages' %}
+    {% set icon = 'icon-pencil' %}
+    {% if parameters['content'] is defined %}
+        {% set content = parameters['content'] %}
+    {% endif  %}
+    {% if parameters['icon'] is defined %}
+        {% set icon = parameters['icon'] %}
+    {% endif  %}
+    {% if parameters['translation_domain'] is defined %}
+        {% set translation_domain = parameters['translation_domain'] %}
+    {% endif  %}
+    {% if parameters['gradient'] is defined %}
+        {% set gradient = parameters['gradient'] %}
+    {% endif  %}
+    {% set idForm = url|hash %}
+    <button type="button" class="button" onclick="openPopUp_{{ idForm }}('{{ idForm }}')">
+        <span class="button-icon left-side {{ gradient }}"><span class="{{ icon }}"></span></span>
+        {{ message|trans({},translation_domain) }}
+    </button>
+        <script type="text/javascript">
+            function openPopUp_{{ idForm }}(idForm){
+                var content = '<form action="{{ url }}" id="{{ idForm }}" method="post" novalidate>{{ content|raw }}</form>';
+                //$.modal.showForm(area,confirmFormModal,cancelFormModal,options);
+                $.modal.showForm(content,function(){
+                    $('#'+idForm).submit();
+                },null,{});
+            }
+        </script>
+{% endmacro %}
+
 {% macro create(url, message) %}
 <a href="{{ url }}" class="btn btn-sm btn-primary">
     <i class="glyphicon glyphicon-plus-sign"></i><span>{{ message is empty ? 'sms_facilito.new'|trans : message }}</span>

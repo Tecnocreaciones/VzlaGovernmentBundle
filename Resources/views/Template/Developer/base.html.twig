@@ -157,8 +157,7 @@
             %}
                 <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
-        {# Bloque para cargar archivos javascript adicionales #}
-        {% block javascripts '' %}
+        
         
             {# Template base functions #}
             {% block javascripts_base '' %}
@@ -171,6 +170,8 @@
             <!-- Tinycon -->
             <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/libs/tinycon.min.js') }}"></script>
             
+            {# Bloque para cargar archivos javascript adicionales despues del core #}
+            {% block javascripts '' %}
         {# Bloque para escribir javascript #}    
         {% block javascript '' %}
         <script>
