@@ -94,7 +94,8 @@
         </div>
 {% endblock %}
 
-{% block javascripts %}
+{% block javascripts_base %}
+    {{ parent() }}
     <!-- JavaScript at the bottom for fast page loading -->
     <!-- Scripts -->
     <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/libs/jquery-1.8.2.min.js') }}"></script>
@@ -104,7 +105,7 @@
     <!-- Template functions -->
     <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.input.js') }}"></script>
     <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.message.js') }}"></script>
-{% endblock javascripts%}
+{% endblock javascripts_base %}
 
 {% block javascript %}
     <script>
