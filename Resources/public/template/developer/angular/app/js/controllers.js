@@ -35,5 +35,9 @@ angular.module('mainApp.controllers', [])
                 def.resolve(names);
                 return def;
             };
+            
+          $rootScope.generateUrl = function(route,parameters){
+              return Routing.generate(route,parameters);
+          };
        })
 ;
