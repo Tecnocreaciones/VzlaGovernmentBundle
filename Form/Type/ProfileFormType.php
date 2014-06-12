@@ -2,9 +2,10 @@
 
 namespace Tecnocreaciones\Vzla\GovernmentBundle\Form\Type;
 
+use FOS\UserBundle\Form\Type\ProfileFormType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class ProfileFormType extends \FOS\UserBundle\Form\Type\ProfileFormType
+class ProfileFormType extends ProfileFormType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -23,6 +24,6 @@ class ProfileFormType extends \FOS\UserBundle\Form\Type\ProfileFormType
 
     public function getName()
     {
-        return 'tecnocreaciones_vzla_government_user_registration';
+        return 'tecnocreaciones_vzla_government_user_profile';
     }
 }

@@ -44,7 +44,11 @@
             <argument type="service" id="twig.loader" />
         </service>
         
-        <service id="tecnocreaciones_vzla_government.registration.form.type" class="Tecnocreaciones\Vzla\GovernmentBundle\Form\Type\ProfileFormType">
+        <service id="tecnocreaciones_vzla_government.profile.form.type" class="Tecnocreaciones\Vzla\GovernmentBundle\Form\Type\ProfileFormType">
+            <tag name="form.type" alias="tecnocreaciones_vzla_government_user_profile" />
+            <argument>%fos_user.model.user.class%</argument>
+        </service>
+        <service id="tecnocreaciones_vzla_government.registration.form.type" class="Tecnocreaciones\Vzla\GovernmentBundle\Form\Type\RegistrationFormType">
             <tag name="form.type" alias="tecnocreaciones_vzla_government_user_registration" />
             <argument>%fos_user.model.user.class%</argument>
         </service>
