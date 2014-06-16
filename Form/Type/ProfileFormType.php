@@ -2,10 +2,10 @@
 
 namespace Tecnocreaciones\Vzla\GovernmentBundle\Form\Type;
 
-use FOS\UserBundle\Form\Type\ProfileFormType;
+use FOS\UserBundle\Form\Type\ProfileFormType as BaseProfileFormType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class ProfileFormType extends ProfileFormType
+class ProfileFormType extends BaseProfileFormType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
