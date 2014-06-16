@@ -35,12 +35,6 @@
     <!-- Template functions -->
     <script src="{{  asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.input.js') }}"></script>	
 {% endblock javascripts_base %}
-{% block javascripts %}
-    
-    <!-- Plugins -->
-    
-
-{% endblock %}
 
 {% block javascript %}
     {{ parent() }}
@@ -167,11 +161,11 @@
                 {
                     return;
                 }
-
                 var tr = $(this).parent(),
                         row = tr.next('.row-drop'),
                         rows;
-
+                        
+                var getTableInfoFunction = tr.parent().parent().attr('get-table-info');
                 // If click on a special row
                 if (tr.hasClass('row-drop'))
                 {
@@ -182,7 +176,7 @@
                 if (row.length > 0)
                 {
                     // Un-style row
-                    tr.children().removeClass('anthracite-gradient glossy');
+                    tr.children().removeClass('glossy color-white');
 
                     // Remove row
                     row.remove();
@@ -195,21 +189,30 @@
                 if (rows.length > 0)
                 {
                     // Un-style previous rows
-                    rows.prev().children().removeClass('anthracite-gradient glossy');
+                    rows.prev().children().removeClass('glossy color-white');
 
                     // Remove rows
                     rows.remove();
                 }
 
+                var attrData = tr.attr('data');
+                if(attrData == undefined){
+                    return ;
+                }
+                var data = $.parseJSON(attrData);
                 // Style row
-                tr.children().addClass('anthracite-gradient glossy');
-                var data = $.parseJSON(tr.attr('data'));
+                tr.children().addClass('glossy color-white');
+                
                 // Add fake row
-                var tableExtraInfo = getTableExtraInfo(data);
+                if(getTableInfoFunction != undefined ){
+                    var tableExtraInfo = eval(getTableInfoFunction)(data);
+                }else{
+                    var tableExtraInfo = getTableExtraInfo(data);
+                }
                 $('<tr class="row-drop">' +
-                        '<td colspan="' + tr.children().length + '">' +
+                        '<td colspan="' + tr.children().length + '"><strong>' +
                         tableExtraInfo +
-                        '</td>' +
+                        '</strong></td>' +
                         '</tr>').insertAfter(tr);
 
             });
