@@ -44,6 +44,11 @@
 
 {% block javascript %}
     {{ parent() }}
+    <script type="text/javascript">
+        $.fn.styleSelect.defaults.allValuesText = '{{ 'tecnocreaciones_vzla_government.all'|trans }}';
+        $.fn.styleSelect.defaults.multipleValuesText = '%d {{ 'tecnocreaciones_vzla_government.selected'|trans }}';
+        $.fn.styleSelect.defaults.searchText = '{{ 'tecnocreaciones_vzla_government.search'|trans }}';
+    </script>
     <script type="text/ng-template" id="ng-table/filters/select.html">
         <select ng-options="data.id as data.title for data in column.data" ng-model="params.filter()[name]" ng-show="filter=='select'" class="select auto-refresh expandable-list input-small" name="[[column.filterName]]"> </select>
     </script>
