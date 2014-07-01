@@ -13,7 +13,7 @@ file that was distributed with this source code.
 
 .message-loading {
     position: fixed;
-    z-index: 1001;
+    z-index: 999302;
     text-align: center;
     top: 0%;
     left: 47%;
