@@ -7,4 +7,5 @@ tecnocreaciones_vzla_government:
                             save: Guardar
                             save_and_close: Guardar y cerrar
                             question:
-                                    delete: Desea eliminar este elemento
+                                delete: Desea eliminar este elemento
+                                copy: Desea copiar este elemento

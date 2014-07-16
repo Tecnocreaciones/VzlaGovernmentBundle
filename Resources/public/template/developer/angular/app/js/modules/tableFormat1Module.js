@@ -1,6 +1,5 @@
-mainApp.requires.push('tableFormat1');
 var tableFormat1 = angular.module('tableFormat1', ['ngTable','ngTableExport'])
-        .directive('loadingContainer', function() {
+        .directive('loadingContainer', function(notificationBarService) {
             return {
                 restrict: 'A',
                 scope: false,
@@ -9,6 +8,11 @@ var tableFormat1 = angular.module('tableFormat1', ['ngTable','ngTableExport'])
                     element.append(loadingLayer);
                     element.addClass('loading-container');
                     scope.$watch(attrs.loadingContainer, function(value) {
+                        if(value){
+                            notificationBarService.getLoadStatus().loading();
+                        }else{
+                            notificationBarService.getLoadStatus().done();
+                        }
                         loadingLayer.toggleClass('ng-hide', !value);
                     });
                 }
@@ -24,7 +28,7 @@ var tableFormat1 = angular.module('tableFormat1', ['ngTable','ngTableExport'])
         .controller('TableFormatController', function($scope, ngTableParams, $http,sfTranslator,notifyService) {
             $scope.itemEdit = function(url){
                 document.location = url;
-            }
+            };
             $scope.itemDelete = function(url){
                 $.modal.confirm('¿'+ sfTranslator.trans('tecnocreaciones_vzla_government.question.delete') +'?', function()
                 {
@@ -43,7 +47,7 @@ var tableFormat1 = angular.module('tableFormat1', ['ngTable','ngTableExport'])
                     textConfirm: sfTranslator.trans('tecnocreaciones_vzla_government.yes'),
                     textCancel: sfTranslator.trans('tecnocreaciones_vzla_government.no')
                 });
-            }
+            };
             $scope.evalFooter = function(type,footer){
               for (var i = 0; i < footer.length; i++) {
                     if (footer[i] === type) {
@@ -51,7 +55,7 @@ var tableFormat1 = angular.module('tableFormat1', ['ngTable','ngTableExport'])
                     }
                 }
               return false;
-           }
+           };
             $scope.tableParams = new ngTableParams({
                 page: 1, // show first page
                 count: 10 // count per page
@@ -97,4 +101,4 @@ var tableFormat1 = angular.module('tableFormat1', ['ngTable','ngTableExport'])
                     angular.element(document.getElementById("select_all")).prop("indeterminate", (checked != 0 && unchecked != 0));
                 }, true);
 
-        })
+        });

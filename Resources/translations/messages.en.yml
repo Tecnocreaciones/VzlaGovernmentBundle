@@ -8,3 +8,4 @@ tecnocreaciones_vzla_government:
                             save_and_close: Save and close
                             question:
                                 delete: You want to delete this item
+                                copy: You want to copy this item

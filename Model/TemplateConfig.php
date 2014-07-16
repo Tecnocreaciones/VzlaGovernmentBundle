@@ -29,6 +29,7 @@ class TemplateConfig implements \Symfony\Component\DependencyInjection\Container
             'menu'              => '',
             'logo'              => 'logo.png',
             'angular_dependencies'              => array(),
+            'angular_modules'              => array(),
         );
             
     function setTemplateOptions($template, array $options) {
