@@ -1,11 +1,11 @@
 tecnocreaciones_vzla_government:
-                            no: No
-                            yes: Yes
-                            step: Step
-                            back: Back
-                            next: Next
-                            save: Save
-                            save_and_close: Save and close
-                            question:
-                                delete: You want to delete this item
-                                copy: You want to copy this item
+    no: No
+    yes: Yes
+    step: Step
+    back: Back
+    next: Next
+    save: Save
+    save_and_close: Save and close
+    question:
+        delete: ¿You want to delete this item?
+        copy: ¿You want to copy this item?
