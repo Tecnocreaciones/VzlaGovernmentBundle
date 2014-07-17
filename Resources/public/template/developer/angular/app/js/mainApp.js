@@ -6,8 +6,8 @@ var angularDependencies = [
     'mainApp.services',
     'notificationBarModule',
     'notifyModule',
-    'ngSanitize',
-    'tableFormat1'
+    'tableFormat1',
+    'ngSanitize'
 ];
 angularDependencies = angularDependencies.concat(extraAngularDependencies);
 var mainApp = angular.module('mainApp',angularDependencies);
