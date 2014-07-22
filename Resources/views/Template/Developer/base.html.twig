@@ -121,6 +121,7 @@
             <noscript class="message black-gradient simpler">Your browser does not support JavaScript! Some features won't work as expected...</noscript>
             {% include 'TecnocreacionesVzlaGovernmentBundle:Block:header.html.twig' %}
             <div  class="content-container">
+                {% block before_body '' %}
                 {% block body %}
                     {% block mainTitle %}
 
@@ -131,6 +132,7 @@
                     {% endblock %}
                     Contenido (Sobrescribir el bloque "body")
                 {% endblock %}
+                {% block after_body '' %}
             </div>
             {% include 'TecnocreacionesVzlaGovernmentBundle:Block:footer.html.twig' %}
         </section>
