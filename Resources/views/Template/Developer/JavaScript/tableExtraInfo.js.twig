@@ -1,31 +1,35 @@
+{# 
+    Include this file
+    
+        {% include 'TecnocreacionesVzlaGovernmentBundle:Template:Developer/JavaScript/tableExtraInfo.js.twig' %}
+
+    //Example for table extra info methos to override
+    //Add attr to table "get-table-info" and "tr" add atribute "data" in format json
+
+     <table class="table-extra-info" get-table-info="getTableExtraInfo">
+        <tr data='{ example: "description", age: 4}'> ... </tr>
+     </table>
+
+    function getTableExtraInfo(data)
+    {
+        return  '<div class="float-right">' +
+                '<button type="submit" class="button glossy mid-margin-right">' +
+                '<span class="button-icon"><span class="icon-mail"></span></span>' +
+                'Send mail' +
+                '</button>' +
+                '<button type="submit" class="button glossy">' +
+                '<span class="button-icon red-gradient"><span class="icon-cross"></span></span>' +
+                'Remove' +
+                '</button>' +
+                '</div>' +
+                '<strong>Name:</strong> ' + data.name + '<br>' +
+                '<strong>Created at:</strong> ' + data.created_at + '<br>' +
+                '<strong>Updated at:</strong> ' + data.updated_at + '<br>'
+                ;
+    }
+#}
 <script type="text/javascript">
     $(document).ready(function() {
-            //Example for table extra info methos to override
-            //Add attr to table "get-table-info" and "tr" add atribute "data" in format json
-            /**
-             * <table get-table-info="getTableExtraInfo">
-             *  <tr data='{ example: "description", age: 4}'> ... </tr>
-             * </table>
-             */
-            /**
-            function getTableExtraInfo(data)
-            {
-                return  '<div class="float-right">' +
-                        '<button type="submit" class="button glossy mid-margin-right">' +
-                        '<span class="button-icon"><span class="icon-mail"></span></span>' +
-                        'Send mail' +
-                        '</button>' +
-                        '<button type="submit" class="button glossy">' +
-                        '<span class="button-icon red-gradient"><span class="icon-cross"></span></span>' +
-                        'Remove' +
-                        '</button>' +
-                        '</div>' +
-                        '<strong>Name:</strong> ' + data.name + '<br>' +
-                        '<strong>Created at:</strong> ' + data.created_at + '<br>' +
-                        '<strong>Updated at:</strong> ' + data.updated_at + '<br>'
-                        ;
-            }
-            **/
            // Table extra info - styled
             $('.table-extra-info').on('click', 'tbody td', function(event)
             {
