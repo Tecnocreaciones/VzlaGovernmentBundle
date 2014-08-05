@@ -208,7 +208,7 @@
 
                 }, 2000);
             }
-            {% for type in ['success', 'error'] %}
+            {% for type in ['success', 'error','info'] %}
                 {% for message in app.session.flashbag.get(type) %}
                     // Gather options
                     notify('{{ message }}','', {
