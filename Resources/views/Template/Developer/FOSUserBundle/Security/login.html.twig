@@ -37,6 +37,7 @@
                     <div id="form-block" class="scratch-metal">
                         <div id="form-viewport">
                             <form method="post" action="#" id="form-login" class="input-wrapper blue-gradient glossy" title="{{ 'tecnocreaciones_vzla_government.sign_in'|trans }}">
+                                {% block form_login %}
                                 <ul class="inputs black-input large">
                                     <!-- The autocomplete="off" attributes is the only way to prevent webkit browsers from filling the inputs with yellow -->
                                     <li><span class="icon-user mid-margin-right"></span><input type="text" name="login" id="login" value="" class="input-unstyled" placeholder="{{ 'tecnocreaciones_vzla_government.username'|trans }}" autocomplete="off"></li>
@@ -48,39 +49,40 @@
                                     <input type="checkbox" name="remind" id="remind" value="1" checked="checked" class="switch tiny mid-margin-right with-tooltip" title="{{ 'tecnocreaciones_vzla_government.enable_auto_login'|trans }}">
                                     <label for="remind">{{ 'tecnocreaciones_vzla_government.remind_me'|trans }}</label>
                                 </p>
+                                {% endblock form_login %}
                             </form>
 
                             <form method="post" action="#" id="form-password" class="input-wrapper orange-gradient glossy" title="{{ 'tecnocreaciones_vzla_government.lost_password'|trans }}">
+                                {% block form_remember_password %}
+                                    <p class="message">
+                                        {{ 'tecnocreaciones_vzla_government.message_remember_password'|trans }}:
+                                        <span class="block-arrow"><span></span></span>
+                                    </p>
 
-                                <p class="message">
-                                    {{ 'tecnocreaciones_vzla_government.message_remember_password'|trans }}:
-                                    <span class="block-arrow"><span></span></span>
-                                </p>
-
-                                <ul class="inputs black-input large">
-                                    <li><span class="icon-mail mid-margin-right"></span><input type="email" name="mail" id="mail" value="" class="input-unstyled" placeholder="{{ 'tecnocreaciones_vzla_government.your_email'|trans }}" autocomplete="off"></li>
-                                </ul>
-
+                                    <ul class="inputs black-input large">
+                                        <li><span class="icon-mail mid-margin-right"></span><input type="email" name="mail" id="mail" value="" class="input-unstyled" placeholder="{{ 'tecnocreaciones_vzla_government.your_email'|trans }}" autocomplete="off"></li>
+                                    </ul>
+                                {% endblock form_remember_password %}
                                 <button type="submit" class="button glossy full-width" id="send-password">{{ 'tecnocreaciones_vzla_government.send_instructions'|trans }}</button>
 
                             </form>
 
                             <form method="post" action="#" id="form-register" class="input-wrapper red-gradient glossy" title="{{ 'tecnocreaciones_vzla_government.registration'|trans }}">
+                                {% block form_register %}
+                                    <p class="message">
+                                        {{ 'tecnocreaciones_vzla_government.message_register'|trans }}:
+                                        <span class="block-arrow"><span></span></span>
+                                    </p>
 
-                                <p class="message">
-                                    {{ 'tecnocreaciones_vzla_government.message_register'|trans }}:
-                                    <span class="block-arrow"><span></span></span>
-                                </p>
-
-                                <ul class="inputs black-input large">
-                                    <li><span class="icon-card mid-margin-right"></span><input type="text" name="name" id="name-register" value="" class="input-unstyled" placeholder="{{ 'tecnocreaciones_vzla_government.your_name'|trans }}" autocomplete="off"></li>
-                                    <li><span class="icon-mail mid-margin-right"></span><input type="email" name="mail" id="mail-register" value="" class="input-unstyled" placeholder="{{ 'tecnocreaciones_vzla_government.your_email'|trans }}" autocomplete="off"></li>
-                                </ul>
-                                <ul class="inputs black-input large">
-                                    <li><span class="icon-user mid-margin-right"></span><input type="text" name="login" id="login-register" value="" class="input-unstyled" placeholder="{{ 'tecnocreaciones_vzla_government.username'|trans }}" autocomplete="off"></li>
-                                    <li><span class="icon-lock mid-margin-right"></span><input type="password" name="pass" id="pass-register" value="" class="input-unstyled" placeholder="{{ 'tecnocreaciones_vzla_government.password'|trans }}" autocomplete="off"></li>
-                                </ul>
-
+                                    <ul class="inputs black-input large">
+                                        <li><span class="icon-card mid-margin-right"></span><input type="text" name="name" id="name-register" value="" class="input-unstyled" placeholder="{{ 'tecnocreaciones_vzla_government.your_name'|trans }}" autocomplete="off"></li>
+                                        <li><span class="icon-mail mid-margin-right"></span><input type="email" name="mail" id="mail-register" value="" class="input-unstyled" placeholder="{{ 'tecnocreaciones_vzla_government.your_email'|trans }}" autocomplete="off"></li>
+                                    </ul>
+                                    <ul class="inputs black-input large">
+                                        <li><span class="icon-user mid-margin-right"></span><input type="text" name="login" id="login-register" value="" class="input-unstyled" placeholder="{{ 'tecnocreaciones_vzla_government.username'|trans }}" autocomplete="off"></li>
+                                        <li><span class="icon-lock mid-margin-right"></span><input type="password" name="pass" id="pass-register" value="" class="input-unstyled" placeholder="{{ 'tecnocreaciones_vzla_government.password'|trans }}" autocomplete="off"></li>
+                                    </ul>
+                                {% endblock form_register %}
                                 <button type="submit" class="button glossy full-width" id="send-register">{{ 'tecnocreaciones_vzla_government.register'|trans }}</button>
 
                             </form>
@@ -288,7 +290,7 @@
                         });
                     }
                 });
-
+                {% block submit_form_register %}
                 /*
                  * Register
                  */
@@ -387,6 +389,8 @@
                         });
                     }
                 });
+                
+                {% endblock submit_form_register %}
 
                 /******* END OF EDIT SECTION *******/
 
