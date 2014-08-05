@@ -27,10 +27,12 @@
 {% block content %}
         <div class="block main-container">
             {% include 'TecnocreacionesVzlaGovernmentBundle:Block:header.html.twig' %}
-            <br />
-            <div class="with-padding">
-                <p>{{ 'tecnocreaciones_vzla_government.message_app_title'|trans }}</p>
-            </div>
+            {% block title_top %}
+                <br />
+                <div class="with-padding">
+                    <p>{{ 'tecnocreaciones_vzla_government.message_app_title'|trans }}</p>
+                </div>
+            {% endblock title_top %}
 
             <div id="login-container">
                 <div id="form-wrapper">
