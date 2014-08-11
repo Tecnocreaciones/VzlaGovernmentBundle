@@ -85,7 +85,7 @@
                 },
                 "number": {
                     // Number, including positive, negative, and floating decimal. credit: orefalo
-                    "regex": /^[\-\+]?(([0-9]+)([\.,]([0-9]+))?|([\.,]([0-9]+))?)$/,
+                    "regex": /^[\-\+]?(([0-9]+)([\,]([0-9]+))?|([\.]([0-9]+))?)$/,
                     "alertText": "* Invalid floating decimal number"
                 },
                 "date": {
