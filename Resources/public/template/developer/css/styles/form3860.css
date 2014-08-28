@@ -700,7 +700,7 @@ input:-moz-placeholder {
 	}
 
 /* Selects */
-.select {
+.select,.select3 {
 	display: inline-block;
 	*display: inline;
 	zoom: 1;
@@ -724,7 +724,7 @@ input:-moz-placeholder {
 		zoom: 1;
 		vertical-align: top;
 	}
-	.select,
+	.select,.select3,
 	.selectMultiple {
 		-webkit-background-clip: padding-box;
 		-webkit-border-radius: 4px;
@@ -1535,6 +1535,11 @@ input:-moz-placeholder {
 		margin: 0;
 	}
 
+        .select3 {
+            background: url(../img/textures/fabric.png), -webkit-linear-gradient(top, #f6f6f6, #efefef) repeat-x, #f6f6f6;
+            font-weight: normal;
+        }
+        
 /*768px __________________________________________________________________________________________________________ */
 @media only screen and (min-width: 768px) {
 
