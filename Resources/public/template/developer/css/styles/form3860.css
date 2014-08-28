@@ -700,7 +700,7 @@ input:-moz-placeholder {
 	}
 
 /* Selects */
-.select,.select3 {
+.select {
 	display: inline-block;
 	*display: inline;
 	zoom: 1;
@@ -724,7 +724,7 @@ input:-moz-placeholder {
 		zoom: 1;
 		vertical-align: top;
 	}
-	.select,.select3,
+	.select,
 	.selectMultiple {
 		-webkit-background-clip: padding-box;
 		-webkit-border-radius: 4px;
@@ -1536,8 +1536,22 @@ input:-moz-placeholder {
 	}
 
         .select3 {
-            background: url(../img/textures/fabric.png), -webkit-linear-gradient(top, #f6f6f6, #efefef) repeat-x, #f6f6f6;
+            display: inline-block;
+            *display: inline;
+            zoom: 1;
+            text-align: left;
             font-weight: normal;
+            position: relative;
+            z-index: 89;
+            font-size: 13px;
+            line-height: 30px;
+            text-transform: none;
+            font-family: Arial, Helvetica, sans-serif;
+            height: 30px;
+            vertical-align: middle;
+            *vertical-align: -10px;
+            min-height: 30px;
+            min-width: 60px;
         }
         
 /*768px __________________________________________________________________________________________________________ */
