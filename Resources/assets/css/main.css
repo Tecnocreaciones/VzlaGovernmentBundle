@@ -16,14 +16,16 @@
     min-height: 450px;
     padding: 10px;
 }
-.alert-danger{
+.alert-danger {
     color: red;
     font-weight: bold;
 }
 .input-large {
+    width: 200px;
     min-width: 200px;
 }
 .input-small {
+    width: 100px;
     min-width: 100px;
 }
 .list-style-none {
