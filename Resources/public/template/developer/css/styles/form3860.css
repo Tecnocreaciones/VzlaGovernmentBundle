@@ -1600,18 +1600,21 @@ input:-moz-placeholder {
 	.wizard-fieldset.fields-list {
 		background-image: url(../../img/fieldset-bg.gif);
 		background-repeat: repeat-y;
-	}
+	
+		background-size: 234px;
+}
 	.field-block {
-		padding: 0 30px 0 230px;
+		padding: 0 30px 0 234px;
 		margin: 0 -20px;
 		}
 		.field-block .label,
 		.field-drop .label {
 			float: left;
 			text-align: right;
-			margin: 0 0 0 -210px;
-			width: 150px;
-		}
+			margin: 0 20px 0 -214px;
+			width: 204px;
+		
+}
 
 	/* Field drop */
 	.field-drop {
