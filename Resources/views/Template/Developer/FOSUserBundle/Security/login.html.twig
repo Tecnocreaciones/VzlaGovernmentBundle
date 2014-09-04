@@ -49,8 +49,8 @@
 
                                     <p class="button-height">
                                         <button type="submit" class="button glossy float-right" id="login">{{ 'tecnocreaciones_vzla_government.sign_in'|trans }}</button>
-                                        <input type="checkbox" name="remind" id="remind" value="1" checked="checked" class="switch tiny mid-margin-right with-tooltip" title="{{ 'tecnocreaciones_vzla_government.enable_auto_login'|trans }}">
-                                        <label for="remind">{{ 'tecnocreaciones_vzla_government.remind_me'|trans }}</label>
+                                        <input type="checkbox" name="_remember_me" id="remember_me" checked="checked" class="switch tiny mid-margin-right with-tooltip" title="{{ 'tecnocreaciones_vzla_government.enable_auto_login'|trans }}">
+                                        <label for="remember_me">{{ 'tecnocreaciones_vzla_government.remind_me'|trans }}</label>
                                     </p>
                                     {% endblock form_login %}
                                 </form>
@@ -178,7 +178,7 @@
                 {
                     // Values
                     var login = $.trim($('#login').val()),
-                            pass = $.trim($('#pass').val());
+                            pass = $.trim($('#pass').val()),remind = $.trim($('#remember_me').val());
 
                     // Stop normal behavior
                     event.preventDefault();
@@ -208,12 +208,20 @@
                         displayLoading('{{ 'tecnocreaciones_vzla_government.login.validators.checking_credentials'|trans }}...');
 
                         var url = '{{ path("fos_user_security_check") }}';
+                        
+                        if($("#remember_me").is(':checked')) {  
+                            remind = 'on';
+                        } else {  
+                            remind = 'off';
+                        }  
+                        console.log(remind);
                         //This is where you may do your AJAX call, for instance:
                         $.ajax(url, {
                             type: "POST",
                             data: {
                                 _username: login,
                                 _password: pass,
+                                _remember_me: remind,
                                 _csrf_token: '{{ csrf_token }}'
                             },
                             success: function(data)
