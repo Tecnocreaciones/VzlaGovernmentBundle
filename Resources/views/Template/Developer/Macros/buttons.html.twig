@@ -268,7 +268,7 @@
         // Demo confirm
         function openDelete(idForm)
         {
-                $.modal.confirm('{{ message is empty ? 'tecnocreaciones_vzla_government.question.delete'|trans({},'messages') : message }}', function()
+                $.modal.confirm('{{ message is empty ? 'tecnocreaciones_vzla_government.question.delete'|trans({},'messages') : message | raw }}', function()
                 {
                     $('#'+idForm).submit();
 
