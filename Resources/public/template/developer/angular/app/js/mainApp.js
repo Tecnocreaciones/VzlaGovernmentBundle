@@ -11,8 +11,12 @@ var angularDependencies = [
 ];
 angularDependencies = angularDependencies.concat(extraAngularDependencies);
 var mainApp = angular.module('mainApp',angularDependencies);
+if(interpolateStartSymbol == undefined){
+    var interpolateStartSymbol = "[[";
+    var interpolateEndSymbol = "]]";
+}
 
 mainApp.config(function($interpolateProvider) {
-    $interpolateProvider.startSymbol('[[');
-    $interpolateProvider.endSymbol(']]');
+    $interpolateProvider.startSymbol(interpolateStartSymbol);
+    $interpolateProvider.endSymbol(interpolateEndSymbol);
 });

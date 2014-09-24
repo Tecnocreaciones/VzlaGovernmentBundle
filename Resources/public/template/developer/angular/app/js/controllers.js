@@ -40,4 +40,6 @@ angular.module('mainApp.controllers', [])
               return Routing.generate(route,parameters);
           };
        })
+       .controller("MainContentController",function(){
+       })
 ;
