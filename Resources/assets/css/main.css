@@ -24,6 +24,10 @@
     width: 200px;
     min-width: 200px;
 }
+.select-large {
+    width: 223px;
+    min-width: 223px;
+}
 .input-small {
     width: 100px;
     min-width: 100px;
