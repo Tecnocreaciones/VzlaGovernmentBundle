@@ -1596,13 +1596,31 @@ input:-moz-placeholder {
 	}
 
 	/* Fields list */
-	.fieldset.fields-list,
-	.wizard-fieldset.fields-list {
+	.fieldset.fields-list {
 		background-image: url(../../img/fieldset-bg.gif);
 		background-repeat: repeat-y;
 	
 		background-size: 246px;
-}
+        }
+	.wizard-fieldset.fields-list {
+		background-image: url(../../img/fieldset-bg.gif);
+		background-repeat: repeat-y;
+	
+		background-size: 234px;
+        }
+                .field-block-wizard {
+		padding: 0 30px 0 234px;
+		margin: 0 -20px;
+		}
+		.field-block-wizard .label,
+		.field-block-wizard .label {
+			float: left;
+			text-align: right;
+			margin: 0 17px 0 -233px;
+			width: 240px;
+		
+                }
+        
 	.field-block {
 		padding: 0 30px 0 234px;
 		margin: 0 -20px;
@@ -1611,10 +1629,10 @@ input:-moz-placeholder {
 		.field-drop .label {
 			float: left;
 			text-align: right;
-			margin: 0 17px 0 -233px;
+			margin: 0 17px 0 -240px;
 			width: 240px;
 		
-}
+                }
 
 	/* Field drop */
 	.field-drop {
