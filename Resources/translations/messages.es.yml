@@ -6,6 +6,10 @@ tecnocreaciones_vzla_government:
     next: Siguiente
     save: Guardar
     save_and_close: Guardar y cerrar
+    cancel: Cancelar
     question:
         delete: ¿Desea eliminar este elemento?
         copy: ¿Desea copiar este elemento?
+    dialog:
+        confirm: Confirme la acción
+        popup: Ventana emergente
