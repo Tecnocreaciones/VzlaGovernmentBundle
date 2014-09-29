@@ -1601,7 +1601,7 @@ input:-moz-placeholder {
 		background-image: url(../../img/fieldset-bg.gif);
 		background-repeat: repeat-y;
 	
-		background-size: 234px;
+		background-size: 246px;
 }
 	.field-block {
 		padding: 0 30px 0 234px;
@@ -1611,8 +1611,8 @@ input:-moz-placeholder {
 		.field-drop .label {
 			float: left;
 			text-align: right;
-			margin: 0 20px 0 -214px;
-			width: 204px;
+			margin: 0 17px 0 -233px;
+			width: 240px;
 		
 }
 
