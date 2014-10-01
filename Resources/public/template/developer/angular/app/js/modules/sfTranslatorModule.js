@@ -19,8 +19,6 @@ sfTranslatorModule.factory('sfTranslator',[function(){
 }])
 .filter('trans',function(sfTranslator){
       return function(message,parameters){
-          console.log(message);
-          console.log(parameters);
           return sfTranslator.trans(message,parameters);
       };
   })
