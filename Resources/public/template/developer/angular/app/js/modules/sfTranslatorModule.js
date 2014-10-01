@@ -16,5 +16,13 @@ sfTranslatorModule.factory('sfTranslator',[function(){
         if ( err instanceof ReferenceError ) 
             throw ('Variable "Translator" is not detected, please install BazingaJsTranslationBundle in your symfony project and import in layout');
     }
-}]);
+}])
+.filter('trans',function(sfTranslator){
+      return function(message,parameters){
+          console.log(message);
+          console.log(parameters);
+          return sfTranslator.trans(message,parameters);
+      };
+  })
+;
 
