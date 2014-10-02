@@ -41,8 +41,14 @@ angular.module('mainApp.filters', []).
   .filter('myDate',function($filter){
       return function(dateString){
           var formatFrom = "yyyy-MM-dd HH:mm:ss";
+          var formatFromOnlyDate = "yyyy-MM-dd";
           var formatTo = "yyyy-MM-dd";
           var mydate = getDateFromFormat(dateString,formatFrom);
+          
+          if(mydate === 0){
+              mydate = getDateFromFormat(dateString,formatFromOnlyDate);
+          }
+          
           var dateFormated = "";
           dateFormated = $filter('date')(mydate, formatTo);
           return dateFormated;
