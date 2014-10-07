@@ -266,7 +266,7 @@
                         formWrapper.clearMessages('{{ 'tecnocreaciones_vzla_government.login.validators.please_fill_in_your_email'|trans }}');
 
                         // Display message
-                        displayError('{{ 'tecnocreaciones_vzla_government.validators.email_is_not_valid'|trans }}');
+                        displayError('{{ 'tecnocreaciones_vzla_government.login.validators.email_is_not_valid'|trans }}');
                         return false;
                     }
                     else
@@ -335,7 +335,7 @@
                     else if (!/^[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(mail))
                     {
                         // Display message
-                        displayError('{{ 'tecnocreaciones_vzla_government.validators.email_is_not_valid'|trans }}');
+                        displayError('{{ 'tecnocreaciones_vzla_government.login.validators.email_is_not_valid'|trans }}');
                         return false;
                     }
                     else if (login.length === 0)
