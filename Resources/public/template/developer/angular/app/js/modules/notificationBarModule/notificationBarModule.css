@@ -30,6 +30,15 @@ file that was distributed with this source code.
     box-shadow: 0px 0px 2px #000000;
     /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
 }
+#message-errors {
+    position: fixed;
+    z-index: 999302;
+    text-align: center;
+    top: 6%;
+    left: 47%;
+    font-weight: bold;
+    padding: 0px 5px 0px 5px;
+}
 .error-loading {
     border-color: rgb(255, 3, 3);
 }
