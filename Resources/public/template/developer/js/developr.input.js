@@ -2441,7 +2441,7 @@
 
 				case keys.down:
 					// If not open yet, check if we have to
-					if (select.hasClass('select') && !select.hasClass('open') && settings.openOnKeyDown)
+					if (select.hasClass('select') && !select.hasClass('open') && settings && settings.openOnKeyDown)
 					{
 						_openSelect(select);
 						event.preventDefault();
