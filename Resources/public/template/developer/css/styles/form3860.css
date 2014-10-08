@@ -594,6 +594,9 @@ input:-moz-placeholder {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
+        .field-block.button-height span div{
+            margin-left: 20px;
+        }
 	.field-block + .field-block {
 		margin-top: 20px;
 		border-top: 1px solid #e0e0e0;
