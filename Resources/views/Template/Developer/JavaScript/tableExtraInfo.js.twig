@@ -30,19 +30,25 @@
 #}
 <script type="text/javascript">
     $(document).ready(function() {
-           // Table extra info - styled
-            $('.table-extra-info').on('click', 'tbody td', function(event)
+         var addEventsToTableExtra = function(){
+             // Table extra info - styled
+            $('.table-extra-info').on('click', 'tbody td,tbody tr td span.open-info-table', function(event)
             {
                 // Do not process if something else has been clicked
                 if (event.target !== this)
                 {
                     return;
                 }
-                var tr = $(this).parent(),
-                        row = tr.next('.row-drop'),
-                        rows;
-                        
+                var tr = $(this).parent();
+                var rows;
                 var getTableInfoFunction = tr.parent().parent().attr('get-table-info');
+                
+                if(getTableInfoFunction == undefined){
+                    tr = $(this).parent().parent();
+                    getTableInfoFunction = tr.parent().parent().attr('get-table-info');
+                }
+                
+                var row = tr.next('.row-drop');
                 // If click on a special row
                 if (tr.hasClass('row-drop'))
                 {
@@ -93,16 +99,30 @@
                         '</tr>').insertAfter(tr);
 
             });
+         };
+         var addIconsToTableExtra = function(){
+             $.each($('.table-extra-info thead tr'),function(){
+                 var tr = $(this);
+                 if(tr.hasClass('table-extra-booted')){
+                    return ;
+                 }
+                 tr.addClass('table-extra-booted');
+                 tr.prepend('<th style="width:5px">&nbsp;</th>');
+            });
             $.each($('.table-extra-info tbody tr'),function(){
                  var tr = $(this);
                  var attrData = tr.attr('data');
                 if(attrData == undefined){
                     return ;
                 }
-                
-                
+                if(tr.hasClass('table-pointer')){
+                    return;
+                }
                 tr.addClass('table-pointer');
+                tr.prepend('<td><span class="open-info-table icon-down-fat"></span></td>');
             });
-            
-        });
+         };
+         addEventsToTableExtra();
+         addIconsToTableExtra();
+    });
 </script>
