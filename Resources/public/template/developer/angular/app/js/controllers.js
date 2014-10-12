@@ -9,7 +9,7 @@ angular.module('mainApp.controllers', [])
            };
            var inArray = Array.prototype.indexOf ?
             function (val, arr) {
-                return arr.indexOf(val)
+                return arr.indexOf(val);
             } :
             function (val, arr) {
                 var i = arr.length;
@@ -17,7 +17,7 @@ angular.module('mainApp.controllers', [])
                     if (arr[i] === val) return i;
                 }
                 return -1;
-            }
+            };
            
            $rootScope.names = function(data) {
                 var def = $q.defer(),

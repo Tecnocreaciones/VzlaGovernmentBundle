@@ -29,11 +29,13 @@
     }
 #}
 <script type="text/javascript">
+    var addIconsToTableExtra;
     $(document).ready(function() {
          var addEventsToTableExtra = function(){
              // Table extra info - styled
-            $('.table-extra-info').on('click', 'tbody td,tbody tr td span.open-info-table', function(event)
+            $('.table-extra-info, .table-extra-info-not-open').on('click', 'tbody td,tbody tr td span.open-info-table', function(event)
             {
+                console.log('table-extra-info...');
                 // Do not process if something else has been clicked
                 if (event.target !== this)
                 {
@@ -100,7 +102,7 @@
 
             });
          };
-         var addIconsToTableExtra = function(){
+         var addHeaderToTableExtra = function(){
              $.each($('.table-extra-info thead tr'),function(){
                  var tr = $(this);
                  if(tr.hasClass('table-extra-booted')){
@@ -109,6 +111,16 @@
                  tr.addClass('table-extra-booted');
                  tr.prepend('<th style="width:5px">&nbsp;</th>');
             });
+             $.each($('.table-extra-info tfoot tr'),function(){
+                 var tr = $(this);
+                 if(tr.hasClass('table-extra-booted')){
+                    return ;
+                 }
+                 tr.addClass('table-extra-booted');
+                 tr.prepend('<td style="width:5px">&nbsp;</td>');
+            });
+         };
+         addIconsToTableExtra = function(){
             $.each($('.table-extra-info tbody tr'),function(){
                  var tr = $(this);
                  var attrData = tr.attr('data');
@@ -121,8 +133,21 @@
                 tr.addClass('table-pointer');
                 tr.prepend('<td><span class="open-info-table icon-down-fat"></span></td>');
             });
+            $.each($('.table-extra-info-not-open tbody tr'),function(){
+                 var tr = $(this);
+                 var attrData = tr.attr('data');
+                if(attrData == undefined){
+                    return ;
+                }
+                if(tr.hasClass('table-pointer')){
+                    return;
+                }
+                tr.addClass('table-pointer');
+            });
          };
          addEventsToTableExtra();
+         addHeaderToTableExtra();
          addIconsToTableExtra();
+         setTimeout(addIconsToTableExtra,3000);
     });
 </script>

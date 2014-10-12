@@ -1681,7 +1681,7 @@ input:-moz-placeholder {
 		.full-page-wizard > .block {
 			text-align: left;
 			margin: 0 auto;
-			max-width: 800px;
+			max-width: 850px;
 		}
 		.wizard-steps > li {
 			width: auto;
@@ -1700,3 +1700,7 @@ input:-moz-placeholder {
 		}
 
 }/*/mediaquery*/
+
+.col-sm-9 {
+    margin-left: 25px;
+}

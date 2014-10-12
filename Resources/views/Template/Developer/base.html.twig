@@ -15,6 +15,8 @@
         }
       </style>
       <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/libs/jquery-1.8.2.min.js') }}"></script>
+{#      <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/html5-boilerplate/js/vendor/jquery-1.10.2.min.js') }}"></script>#}
+      <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/jquey_ui/jquery-ui.min.js?v=1') }}"></script>
     {% block head_base '' %}
     {% block head '' %}
         
@@ -28,7 +30,7 @@
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+        
         <!-- For all browsers -->
         <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/reset3860.css?v=1') }}">
         <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/style3860.css?v=1') }}">
@@ -57,6 +59,7 @@
             %}
                 <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/jquey_ui/jquery-ui.min.css?v=1') }}">
         <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/styles/modal3860.css') }}?v=1" />
         <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/js/modules/notificationBarModule/notificationBarModule.css') }}" />
         {% block stylesheets '' %}
@@ -95,7 +98,8 @@
         <meta name="msapplication-task" content="name=My profile;action-uri=http://www.display-inline.fr/demo/developr/profile.html;icon-uri=http://www.display-inline.fr/demo/developr/img/favicons/favicon.ico">
     </head>
 
-    <body ng-controller="MainController" class="clearfix with-menu " >
+    <body ng-controller="MainController" class="clearfix with-menu ">
+        <div ng-controller="MainContentController" >
         {% block content %}
         <!-- Prompt IE 6 users to install Chrome Frame -->
         <!--[if lt IE 7]><p class="message red-gradient simpler">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -117,7 +121,7 @@
                 <span class="loader"></span>
         </div>
         <!-- Main content -->
-        <section ng-cloak ng-controller="MainContentController" role="main" id="main" class="block main-frontend">
+        <section ng-cloak role="main" id="main" class="block main-frontend">
             <noscript class="message black-gradient simpler">Your browser does not support JavaScript! Some features won't work as expected...</noscript>
             {% include 'TecnocreacionesVzlaGovernmentBundle:Block:header.html.twig' %}
             <div  class="content-container">
@@ -136,7 +140,7 @@
             </div>
             {% include 'TecnocreacionesVzlaGovernmentBundle:Block:footer.html.twig' %}
             <div id="dialog-confirm" title="{$ dialog.confirm.title $}">
-                <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>{$ dialog.confirm.content $}</p>
+                <p ng-if="dialog.confirm.open"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>{$ dialog.confirm.content $}</p>
             </div>
             <div id="dialog-form">
                 <div id="div-template" ng-include="template.url" onload="templateLoad(template)" ></div>
@@ -229,5 +233,6 @@
                 {% endfor %}
             {% endfor %}
         </script>
+        </div>
     </body>
 </html>
