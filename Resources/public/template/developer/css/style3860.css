@@ -1428,7 +1428,7 @@ li.message-menu {
 		text-shadow: none;
 	}
 	.count {
-		right: 6%;
+		/*right: 6%;*/
 		margin: -10px 0 0 0;
 	}
 	.close {
