@@ -12,7 +12,7 @@ tecnocreaciones_vzla_government:
                             enable_auto_login: Habilitar inicio de sesión automático
                             send_instructions: Enviarme las instrucciones
                             register: Registrar
-                            message_register: ¿Nuevo usuario? Yay! Háganos saber un poquito acerca de usted antes de empezar
+                            message_register: ¿Nuevo usuario? Por favor registrese completando este formulario con sus datos
                             your_name: Su nombre
                             registration: Registro
                             clear_sorting: Borrar selección
