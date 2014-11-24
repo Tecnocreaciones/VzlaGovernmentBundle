@@ -13,3 +13,11 @@ tecnocreaciones_vzla_government:
     dialog:
         confirm: Confirme la acción
         popup: Ventana emergente
+
+app:
+    http:
+        return_to_home: Ir a la página de inicio
+        error:
+            generic: Lo sentimos, ha ocurrido un error.
+            403: Usted no tiene permisos para acceder a esta sección.
+            404: La página que esta tratando de acceder no existe.

@@ -1,0 +1,12 @@
+{% extends "TecnocreacionesVzlaGovernmentBundle:Template:Developer/layout.html.twig" %}
+
+{% block sidebar '' %}
+    
+{% block javascript %}
+    {{  parent() }}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#open-menu').click();
+        });
+    </script>
+{% endblock javascript %}

@@ -176,7 +176,9 @@
         {# include 'TecnocreacionesVzlaGovernmentBundle:Template/Developer/Layout:_side-tabs-shortcuts.html.twig' #}
         
         <!-- Sidebar/drop-down menu -->
-        {% include 'TecnocreacionesVzlaGovernmentBundle:Template/Developer/Layout:_sidebar-drop-down-menu.html.twig' %}
+        {% block sidebar %}
+            {% include 'TecnocreacionesVzlaGovernmentBundle:Template/Developer/Layout:_sidebar-drop-down-menu.html.twig' %}
+        {% endblock sidebar %}
         <!-- End sidebar/drop-down menu -->
 
         <!-- JavaScript at the bottom for fast page loading -->
@@ -495,14 +497,10 @@
                 iexplorer: 9
             };
             $(document).ready(function(){
-                console.log($.browser);
                 var brw = new Browser();
-                console.log(brw);
                 var minNav = null;
                 if(minNavs[brw.name] != undefined){
                     minNav = minNavs[brw.name];
-                    console.log(brw.name);
-                    console.log(minNav);
                     var compare = version_compare(brw.version,minNav,'>');
                     var idDiv = 'message_browser';
                     if(compare == false){
@@ -511,7 +509,6 @@
                             $('#'+idDiv).hide();
                         });
                     }
-                    console.log(compare);
                 }
             });
         </script>
