@@ -44,7 +44,7 @@ interface UserInterface
      * @param \DateTime $createdAt
      * @return User
      */
-    public function setCreatedAt($createdAt);
+    public function setCreatedAt(\DateTime $createdAt);
 
     /**
      * Get createdAt
@@ -59,7 +59,7 @@ interface UserInterface
      * @param \DateTime $updatedAt
      * @return User
      */
-    public function setUpdatedAt($updatedAt);
+    public function setUpdatedAt(\DateTime $updatedAt);
 
     /**
      * Get updatedAt
