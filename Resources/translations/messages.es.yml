@@ -15,6 +15,7 @@ tecnocreaciones_vzla_government:
         popup: Ventana emergente
 
 app:
+    loading: Cargando
     http:
         return_to_home: Ir a la página de inicio
         error:
