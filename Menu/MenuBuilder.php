@@ -21,7 +21,7 @@ use Symfony\Component\Security\Core\SecurityContextInterface;
  *
  * @author Anais Ortega <adcom23@tecnocreaciones.com.ve>
  */
-abstract class MenuBuilder
+abstract class MenuBuilder implements \Symfony\Component\DependencyInjection\ContainerAwareInterface
 {
     /**
      * Menu factory.

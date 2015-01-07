@@ -23,6 +23,9 @@
             <argument type="service" id="knp_menu.factory" />
             <argument type="service" id="security.context" />
             <argument type="service" id="translator" />
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
         </service>
         <service id="app.menu.backend.sidebar" class="Knp\Menu\MenuItem" factory-service="tecnocreaciones_vzla_government.menu_builder.backend" factory-method="createSidebarMenu" scope="request" >
             <argument type="service" id="request" />
