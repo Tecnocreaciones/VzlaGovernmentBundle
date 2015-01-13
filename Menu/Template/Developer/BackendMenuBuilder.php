@@ -22,6 +22,8 @@ use Tecnocreaciones\Vzla\GovernmentBundle\Menu\MenuBuilder;
  */
 class BackendMenuBuilder extends MenuBuilder
 {
+    protected $container;
+    
     /**
      * Base de segundo nivel de sidebar
      * @var array 
@@ -114,5 +116,9 @@ class BackendMenuBuilder extends MenuBuilder
     
     protected function getSecondLevelOptions(array $parameters = array()) {
         return array_merge($this->secondLevelOptions,$parameters);
+    }
+    
+    public function setContainer(\Symfony\Component\DependencyInjection\ContainerInterface $container = null) {
+        $this->container = $container;
     }
 }

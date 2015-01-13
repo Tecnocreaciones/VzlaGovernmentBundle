@@ -86,5 +86,5 @@ abstract class MenuBuilder implements \Symfony\Component\DependencyInjection\Con
     protected function translate($label, $parameters = array())
     {
         return $this->translator->trans(/** @Ignore */ $label, $parameters, 'menu');
-    }    
+    }
 }
