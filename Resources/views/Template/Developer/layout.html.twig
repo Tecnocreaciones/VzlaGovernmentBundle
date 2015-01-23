@@ -1,6 +1,9 @@
 {% extends "TecnocreacionesVzlaGovernmentBundle:Template:Developer/base.html.twig" %}
 
 {% block head_base %}
+{% endblock head_base %}
+
+{% block head_base_post %}
 <script type="text/javascript">
 /*
  AngularJS v1.2.26
@@ -21,44 +24,47 @@
         (function(e,t){typeof module!="undefined"&&module.exports?module.exports=t():typeof define=="function"&&define.amd?define(t):this[e]=t()})("$script",function(){function p(e,t){for(var n=0,i=e.length;n<i;++n)if(!t(e[n]))return r;return 1}function d(e,t){p(e,function(e){return!t(e)})}function v(e,t,n){function g(e){return e.call?e():u[e]}function y(){if(!--h){u[o]=1,s&&s();for(var e in f)p(e.split("|"),g)&&!d(f[e],g)&&(f[e]=[])}}e=e[i]?e:[e];var r=t&&t.call,s=r?t:n,o=r?e.join(""):t,h=e.length;return setTimeout(function(){d(e,function t(e,n){if(e===null)return y();e=!n&&e.indexOf(".js")===-1&&!/^https?:\/\//.test(e)&&c?c+e+".js":e;if(l[e]){o&&(a[o]=1);if(l[e]!=2)return setTimeout(function(){t(e,!0)},0);y()}l[e]=1,o&&(a[o]=1),m(e,y)})},0),v}function m(n,r){var i=e.createElement("script"),u;i.onload=i.onerror=i[o]=function(){if(i[s]&&!/^c|loade/.test(i[s])||u)return;i.onload=i[o]=null,u=1,l[n]=2,r()},i.async=1,i.src=h?n+(n.indexOf("?")===-1?"?":"&")+h:n,t.insertBefore(i,t.lastChild)}var e=document,t=e.getElementsByTagName("head")[0],n="string",r=!1,i="push",s="readyState",o="onreadystatechange",u={},a={},f={},l={},c,h;return v.get=m,v.order=function(e,t,n){(function r(i){i=e.shift(),e.length?v(i,r):v(i,t,n)})()},v.path=function(e){c=e},v.urlArgs=function(e){h=e},v.ready=function(e,t,n){e=e[i]?e:[e];var r=[];return!d(e,function(e){u[e]||r[i](e)})&&p(e,function(e){return u[e]})?t():!function(e){f[e]=f[e]||[],f[e][i](t),n&&n(r)}(e.join("|")),v},v.done=function(e){v([null],e)},v})
         // load all of the dependencies asynchronously.
         
+        {% javascripts 
+               'bundles/bazingajstranslation/js/translator.min.js'
+               'bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/ng-table/ng-table.js'
+               'bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/ng-table-export/ng-table-export.js'
+               'bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/angular-route/angular-route.min.js'
+               'bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/angular-sanitize/angular-sanitize.min.js'
+               'bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/angular-resource/angular-resource.min.js'
+
+               output='compiled/javascript_core_angular.min.js'
+               filter='uglifyjs2' 
+            %}
+             var baseUrl = '{{ asset_url }}';
+        {% endjavascripts %}
+        
         var baseDependecies = [
-          '{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}',
-          '{{ url('bazinga_jstranslation_js') }}',
-          '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/ng-table/ng-table.js') }}',
-          '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/ng-table-export/ng-table-export.js') }}',
-          '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/angular-route/angular-route.min.js') }}',
-          '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/angular-sanitize/angular-sanitize.min.js') }}',
-          '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/angular-resource/angular-resource.min.js') }}'
+          baseUrl,
+          '{{ url('bazinga_jstranslation_js') }}'
         ];
-        var dependencies = [
-            {# En desarrollo se cargan individuales y en produccion se combinan en uno, hay un bug que da error combinandolos en desarrollo #}
-          {% if app.debug %}
-              '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/js/modules/tableFormat1Module.js') }}',
-              '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/js/modules/sfTranslatorModule.js') }}',
-              '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/js/modules/notificationBarModule/notificationBarModule.js') }}',
-              '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/js/modules/notifyModule.js') }}',
-              '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/js/services.js') }}',
-              '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/js/controllers.js') }}',
-              '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/js/filters.js') }}',
-              '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/js/directives.js') }}',
-              '{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/js/mainApp.js') }}',
-          {% else %}
-                {% javascripts output='compiled/angular_modules.js' 
-                    '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/modules/tableFormat1Module.js'
-                    '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/modules/sfTranslatorModule.js'
-                    '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/modules/notificationBarModule/notificationBarModule.js'
-                    '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/modules/notifyModule.js'
-                    '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/services.js'
-                    '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/controllers.js'
-                    '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/filters.js'
-                    '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/directives.js'
-                    '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/mainApp.js'
-                %}
-                  '{{ asset_url }}',
-                {% endjavascripts %}
-            {% endif %}
-            
-        ];
+        {% block dependenciesAsync %}
+            var dependencies = [
+                    {% javascripts 
+                        'bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/angular-cookies/angular-cookies.min.js'
+                        '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/modules/tableFormat1Module.js'
+                        '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/modules/sfTranslatorModule.js'
+                        '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/modules/notificationBarModule/notificationBarModule.js'
+                        '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/modules/notifyModule.js'
+                        '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/services.js'
+                        '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/controllers.js'
+                        '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/filters.js'
+                        '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/directives.js'
+                        '@TecnocreacionesVzlaGovernmentBundle/Resources/public/template/developer/angular/app/js/mainApp.js'
+
+                        filter='uglifyjs2' 
+                        output='compiled/javascript_angular_modules.min.js'
+                    %}
+                      '{{ asset_url }}',
+                    {% endjavascripts %}
+                ''
+            ];
+        {% endblock dependenciesAsync %}
+        
         
         {# Agrego las dependencias de modulos de angularjs del proyecto #}
         var myDependencies = {{ templateConfig.getTemplateOption('developer','angular_dependencies')|json_encode()|raw }};
@@ -125,11 +131,9 @@
             });//fin ready bundoe
         });//fin ready base
       </script>
-{% endblock head_base %}
+{% endblock head_base_post %}
 
 {% block javascripts_base %}
     {{ parent() }}
-    <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/setup.js') }}"></script>
-    
-    
+{#    <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/setup.js') }}"></script>#}
 {% endblock javascripts_base %}

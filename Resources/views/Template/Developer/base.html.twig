@@ -33,10 +33,12 @@
             font-size: 15px;
         }
       </style>
-      <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/libs/jquery-1.8.2.min.js') }}"></script>
-{#      <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/html5-boilerplate/js/vendor/jquery-1.10.2.min.js') }}"></script>#}
-      <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/jquey_ui/jquery-ui.min.js?v=1') }}"></script>
+      {% block javascript_base %}
+          <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/libs/jquery-1.8.2.min.js') }}"></script>
+          <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/jquey_ui/jquery-ui.min.js?v=1') }}"></script>
+      {% endblock javascript_base %}
     {% block head_base '' %}
+    {% block head_base_post '' %}
     {% block head '' %}
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -50,18 +52,30 @@
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         
-        <!-- For all browsers -->
-        <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/reset3860.css?v=1') }}">
-        <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/style3860.css?v=1') }}">
-        <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/colors3860.css?v=1') }}">
-        <link rel="stylesheet" media="print" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/print3860.css?v=1') }}">
-        <!-- For progressively larger displays -->
-        <link rel="stylesheet" media="only all and (min-width: 480px)" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/4803860.css?v=1') }}">
-        <link rel="stylesheet" media="only all and (min-width: 768px)" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/7683860.css?v=1') }}">
-        <link rel="stylesheet" media="only all and (min-width: 992px)" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/9923860.css?v=1') }}">
-        <link rel="stylesheet" media="only all and (min-width: 1200px)" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/12003860.css?v=1') }}">
-        <!-- For Retina displays -->
-        <link rel="stylesheet" media="only all and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5)" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/2x3860.css?v=1') }}">
+        {# Base #}
+        {% block stylesheets_core %}
+            {% stylesheets 
+
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/css/reset3860.css' 
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/css/style3860.css' 
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/css/colors3860.css' 
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/css/print3860.css' 
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/css/4803860.css'
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/css/7683860.css'
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/css/9923860.css'
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/css/12003860.css'
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/css/2x3860.css'
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/css/styles/modal3860.css'
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/js/modules/notificationBarModule/notificationBarModule.css'
+                    '@TecnocreacionesVzlaGovernmentBundle/Resources/assets/css/main.css'
+                    '@TecnocreacionesVzlaGovernmentBundle/Resources/assets/css/gobierno-vzla.css'
+
+                    output='compiled/stylesheets_core.min.css'
+                    filter='uglifycss' filter='cssrewrite' %}
+                 <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+        
 
         <!-- Webfonts -->
         {% if app.debug %}
@@ -72,15 +86,7 @@
 
         <!-- Additional styles -->
         {% block stylesheets_base '' %}
-            {% stylesheets output='compiled/main_developer.css' filter='cssrewrite' 
-                '@TecnocreacionesVzlaGovernmentBundle/Resources/assets/css/main.css'
-                '@TecnocreacionesVzlaGovernmentBundle/Resources/assets/css/gobierno-vzla.css'
-            %}
-                <link rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}
-        <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/jquey_ui/jquery-ui.min.css?v=1') }}">
-        <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/styles/modal3860.css') }}?v=1" />
-        <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/js/modules/notificationBarModule/notificationBarModule.css') }}" />
+            <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/jquey_ui/jquery-ui.min.css?v=1') }}">
         {% block stylesheets '' %}
 
         <!-- JavaScript at bottom except for Modernizr -->
@@ -111,7 +117,7 @@
         <!-- IE9 Pinned Sites: http://msdn.microsoft.com/en-us/library/gg131029.aspx -->
         <meta name="application-name" content="">
         <meta name="msapplication-tooltip" content="Cross-platform admin template.">
-        <meta name="msapplication-starturl" content="http://www.display-inline.fr/demo/developr">
+        <meta name="msapplication-starturl" content="">
         <!-- These custom tasks are examples, you need to edit them to show actual pages -->
         <meta name="msapplication-task" content="name=Agenda;action-uri=http://www.display-inline.fr/demo/developr/agenda.html;icon-uri=http://www.display-inline.fr/demo/developr/img/favicons/favicon.ico">
         <meta name="msapplication-task" content="name=My profile;action-uri=http://www.display-inline.fr/demo/developr/profile.html;icon-uri=http://www.display-inline.fr/demo/developr/img/favicons/favicon.ico">
@@ -189,27 +195,32 @@
                 ConfApp.assetPath = "{{ asset('') }}";
         </script>
         {% endblock content %}
-        {# Bloque para cargar archivos javascript bases #}
-            {% javascripts output='compiled/main_developer.js' 
-            '@TecnocreacionesVzlaGovernmentBundle/Resources/assets/js/main.js'
-            %}
-                <script type="text/javascript" src="{{ asset_url }}"></script>
-            {% endjavascripts %}
-        
-        
-            {# Template base functions #}
+            {# Bloque para cargar archivos javascript bases #}
             {% block javascripts_base '' %}
-            <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.navigable.js') }}"></script>
-            <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.notify.js') }}"></script>
-            <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.scroll.js') }}"></script>
-            <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.tooltip.js') }}"></script>
-            <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.modal.js') }}"></script>
-
-            <!-- Tinycon -->
-            <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/libs/tinycon.min.js') }}"></script>
             
-            {# Bloque para cargar archivos javascript adicionales despues del core #}
+            {% block javascript_core %}
+                {# Template base functions #}
+                {% javascripts
+
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/js/setup.js'
+                    '@TecnocreacionesVzlaGovernmentBundle/Resources/assets/js/main.js'
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.navigable.js'
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.notify.js'
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.scroll.js'
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.tooltip.js'
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.modal.js'
+                    'bundles/tecnocreacionesvzlagovernment/template/developer/js/libs/tinycon.min.js'
+
+                    output='compiled/javascript_core.min.js'
+                    filter='?uglifyjs2'
+                %}
+                    <script src="{{ asset_url }}"></script>
+                {% endjavascripts %}
+            {% endblock javascript_core %}
+            
+            {# Bloque para cargar archivos javascript adicionales despues de la base #}
             {% block javascripts '' %}
+                
         {# Bloque para escribir javascript #}    
         {% block javascript '' %}
         <script type="text/javascript">
