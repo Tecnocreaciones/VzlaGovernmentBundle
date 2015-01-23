@@ -4,15 +4,16 @@
 
 {% block stylesheets %}
         <!-- Additional styles -->
-        <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/styles/form3860.css?v=1') }}">
         <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/styles/switches3860.css?v=1') }}">
 
         <!-- Login pages styles -->
         <link rel="stylesheet" media="screen" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/login3860.css?v=1') }}">
 
-        {% stylesheets  output='compiled/login.css'filter='cssrewrite'
+        {% stylesheets  
             '@TecnocreacionesVzlaGovernmentBundle/Resources/assets/css/login.css'
             '@TecnocreacionesVzlaGovernmentBundle/Resources/assets/css/gobierno-vzla.css'
+            output='compiled/login_sigtec.min.css' 
+            filter='uglifycss' filter='cssrewrite'
         %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -99,21 +100,22 @@
         </div>
 {% endblock %}
 
-{% block javascripts_base %}
-    {{ parent() }}
-    <!-- JavaScript at the bottom for fast page loading -->
-    <!-- Scripts -->
-    <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/libs/jquery-1.8.2.min.js') }}"></script>
-    <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/setup.js') }}"></script>
-    
 
-    <!-- Template functions -->
-    <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.input.js') }}"></script>
-    <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.message.js') }}"></script>
-    <!-- Traductor -->
-    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+        'bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.message.js'
+        'bundles/bazingajstranslation/js/translator.min.js'
+        
+        filter='?uglifyjs2'
+        output='compiled/javascript_login_sigtec.min.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {# Traductor #}
     <script src="{{ url('bazinga_jstranslation_js') }}"></script>
-{% endblock javascripts_base %}
+{% endblock %}
 
 {% block javascript %}
     <script type="text/javascript">

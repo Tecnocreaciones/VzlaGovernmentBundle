@@ -4,7 +4,6 @@
 
 {% block stylesheets %}
     <!-- Additional styles -->
-    <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/styles/form3860.css?v=1') }}">
     <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/styles/table3860.css?v=1') }}">
 
     <!-- DataTables -->
@@ -30,11 +29,6 @@
         }
     </style>
 {% endblock %}
-{% block javascripts_base %}
-    {{ parent() }}
-    <!-- Template functions -->
-    <script src="{{  asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/developr.input.js') }}"></script>	
-{% endblock javascripts_base %}
 
 {% block javascript %}
     {{ parent() }}
