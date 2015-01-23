@@ -3,12 +3,15 @@
 {% trans_default_domain 'TecnocreacionesVzlaGovernmentBundle' %}
 
 {% block stylesheets %}
-    <!-- Additional styles -->
-    <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/css/styles/table3860.css?v=1') }}">
+    {% stylesheets 
+            'bundles/tecnocreacionesvzlagovernment/template/developer/css/styles/table3860.css'
+            'bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/ng-table/ng-table.css'
 
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/ng-table/ng-table.css') }}">
-   
+            filter='uglifycss' filter='cssrewrite'
+            output='compiled/stylesheets_table_format_sigtec.min.css'
+    %}
+         <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
     <style>
         .loading-container {
             position: relative;
