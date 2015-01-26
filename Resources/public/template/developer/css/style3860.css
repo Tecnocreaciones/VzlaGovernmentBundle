@@ -1674,8 +1674,10 @@ li.message-menu {
 	height: 11px;
 	line-height: 11px;
 	width: 4px;
-	margin-left: -2px;
-	*margin-left: 2px;
+	margin-left: 1px;
+	margin-right: 1px;
+	*margin-left: 1px;
+	*margin-right: 1px;
 	*vertical-align: middle;
 	background: #999999 url(../img/old-browsers/style/bg_meter.png) repeat-x;
 	-webkit-background-size: 100% 100%;
