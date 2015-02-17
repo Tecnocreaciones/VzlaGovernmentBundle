@@ -17,13 +17,13 @@
 	margin-left: 0;
 	color: #a0a0a0;
 	}
-	.events > li {
+	.events > li,.events > dd {
 		border-top: 1px solid #e6e6e6;
 		position: relative;
 		padding: 17px 20px 17px 100px;
 		min-height: 44px;
 		}
-		.events > li:first-child {
+		.events > li:first-child, .events > dd:first-child {
 			border-top: 0;
 		}
 		.event-date {
