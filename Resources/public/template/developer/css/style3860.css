@@ -941,10 +941,10 @@ li.message-menu {
 		line-height: 16px;
 		}
 		.list.spaced > li,
-		.list.spaced > li > .list-link {
+		.list.spaced > li > .list-link, .list > dd {
 			padding: 12px 0;
 		}
-		.list > li {
+		.list > li,.list > dd {
 			border-top: 1px dotted #cccccc;
 			position: relative;
 			}
