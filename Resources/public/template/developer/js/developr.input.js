@@ -219,7 +219,7 @@
 			if (showAsMultiple)
 			{
 				// Create
-				select = $('<span class="'+this.className.replace(/validate\[.*\]/, '').replace(/(\s*)select(\s*)/, '$1selectMultiple$2')+disabled+' replacement"'+title+widthString+' tabindex="'+tabIndex+'">'+
+				select = $('<span class="'+this.className.replace(/validate\[.*\]/, '').replace(/(\s*)select(\s*)/, '$1selectMultiple$2')+disabled+' replacement"'+title+widthString+' >'+
 								'<span class="drop-down"></span>'+
 							'</span>')
 				.insertAfter(element)
@@ -252,7 +252,7 @@
 			else
 			{
 				// Create
-				select = $('<span class="'+this.className.replace(/validate\[.*\]/, '')+disabled+' replacement"'+title+widthString+' tabindex="'+tabIndex+'">'+
+				select = $('<span class="'+this.className.replace(/validate\[.*\]/, '')+disabled+' replacement"'+title+widthString+' >'+
 								'<span class="select-value"></span>'+
 								'<span class="select-arrow">'+($.template.ie7 ? '<span class="select-arrow-before"></span><span class="select-arrow-after"></span>' : '')+'</span>'+
 								'<span class="drop-down"></span>'+
