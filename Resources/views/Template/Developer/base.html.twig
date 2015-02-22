@@ -508,10 +508,10 @@
                 chrome: 20,
                 firefox: 20,
                 safari: 5,
-                iexplorer: 9
+                iexplorer: 8
             };
+            var brw = new Browser();
             $(document).ready(function(){
-                var brw = new Browser();
                 var minNav = null;
                 if(minNavs[brw.name] != undefined){
                     minNav = minNavs[brw.name];
@@ -526,6 +526,7 @@
                 }
             });
         </script>
+        {% block javascript_post '' %}
         </div>
     </body>
 </html>
