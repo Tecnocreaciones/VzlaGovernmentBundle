@@ -10,11 +10,14 @@
 
     <head>
         <meta charset="utf-8">
+        {% block style_base %}
+            <style>
+              [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+              display: none !important;
+             }
+            </style>
+        {% endblock style_base %}
         <style>
-          [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-          display: none !important;
-        }
-        
         .message-warning {
             position: fixed;
             z-index: 999302;
@@ -32,8 +35,12 @@
             box-shadow: 0px 0px 2px #000000;
             width: 100%;
             font-size: 15px;
+            color: #6b6b6b;
         }
       </style>
+      <script type="text/javascript">
+          var assetPasePath = "{{ asset('') }}";
+      </script>
       {% block javascript_base %}
           <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/js/libs/jquery-1.8.2.min.js') }}"></script>
           <script src="{{ asset('bundles/tecnocreacionesvzlagovernment/jquey_ui/jquery-ui.min.js?v=1') }}"></script>
@@ -127,6 +134,11 @@
 
     <body ng-controller="MainController" class="clearfix with-menu ">
         <div ng-controller="MainContentController" >
+        <div id="message_browser" class="message-warning" style="display: none">
+            <span class="icon-info"></span>&nbsp;
+            <span>Esta version del navegador no es compatible con el sistema.&nbsp;<a href="{{ path('template_support_browsers') }}">(Actualice su navegador)</a></span>
+            <span id="message_browser_close" class="icon-cross-round" style="float: right;margin-right: 20px;cursor: pointer"></span>
+        </div>
         {% block content %}
         <!-- Prompt IE 6 users to install Chrome Frame -->
         <!--[if lt IE 7]><p class="message red-gradient simpler">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -142,16 +154,13 @@
         <div class="hidden-on-desktop">
             <img class="logo-menu-mobile" src="{{ asset(templateConfig.getTemplateOption('developer','logo')['icon_png']) }}" height="24px" width="24px" />
         </div>
-        <div class="message-loading {$ notificationBarService.getLoadStatus().error_class $}" ng-show="notificationBarService.getLoadStatus().showStatus">
+        {% block message_loading %}
+            <div class="message-loading {$ notificationBarService.getLoadStatus().error_class $}" ng-show="notificationBarService.getLoadStatus().showStatus">
                 <span ng-hide="true" >Cargando...</span>
                 <span ng-cloak>{$ notificationBarService.getLoadStatus().text $}</span>
                 <span class="loader"></span>
-        </div>
-        <div id="message_browser" class="message-warning" style="display: none">
-            <span class="icon-info"></span>
-            <span ng-cloak>Esta version del navegador no es compatible con el sistema.&nbsp;<a href="{{ path('template_support_browsers') }}">(Actualice su navegador)</a></span>
-            <span id="message_browser_close" class="icon-cross-round" style="float: right;margin-right: 20px;cursor: pointer"></span>
-        </div>
+            </div>
+        {% endblock message_loading %}
         <!-- Main content -->
         <section ng-cloak role="main" id="main" class="block main-frontend">
             <noscript class="message black-gradient simpler">Your browser does not support JavaScript! Some features won't work as expected...</noscript>
@@ -171,12 +180,14 @@
                 {% block after_body '' %}
             </div>
             {% include 'TecnocreacionesVzlaGovernmentBundle:Block:footer.html.twig' %}
-            <div id="dialog-confirm" title="{$ dialog.confirm.title $}">
-                <p ng-if="dialog.confirm.open"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>{$ dialog.confirm.content $}</p>
-            </div>
-            <div id="dialog-form">
-                <div id="div-template" ng-include="template.url" onload="templateLoad(template)" ></div>
-            </div>
+            {% block dialog %}
+                <div id="dialog-confirm" title="{$ dialog.confirm.title $}">
+                    <p ng-if="dialog.confirm.open"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>{$ dialog.confirm.content $}</p>
+                </div>
+                <div id="dialog-form">
+                    <div id="div-template" ng-include="template.url" onload="templateLoad(template)" ></div>
+                </div>
+            {% endblock dialog %}
         </section>
         <!-- End main content -->
         

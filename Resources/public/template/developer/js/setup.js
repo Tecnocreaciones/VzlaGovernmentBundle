@@ -200,8 +200,8 @@
 	// Normalized viewport size
 	$.template.viewportWidth = win.width();
 	$.template.viewportHeight = $.template.iPhone ? window.innerHeight : win.height();
-
-
+        
+        
 	/********************************************************/
 	/*                 3. Features detection                */
 	/********************************************************/
@@ -215,9 +215,12 @@
 	 * Important: the bundled version is slightly modded. Using another version may break compatibility for older browsers.
 	 * See the file for more details.
 	 */
+//        if(assetPasePath == undefined){
+//            var assetPasePath = $.template.respondPath;
+//        }
 	yepnope({
 		test : Modernizr.mq('(min-width:0)'),
-		nope : [$.template.respondPath+'respond.min.js']
+		nope : [assetPasePath+'/js/respond.min.js']
 	});
 
 
