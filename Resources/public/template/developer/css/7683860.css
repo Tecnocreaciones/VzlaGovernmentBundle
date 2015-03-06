@@ -165,7 +165,7 @@
             display: none;
     }
 
-    #open-menu {
+    #open-menu,#menu-label {
             position: fixed;
     }
 

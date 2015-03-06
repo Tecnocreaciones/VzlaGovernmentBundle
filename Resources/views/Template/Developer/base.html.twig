@@ -149,6 +149,7 @@
             </header>
         <!-- Button to open/hide menu -->
         <a href="javascript:void(0);" id="open-menu"><span>Menu</span></a>
+        <a href="javascript:void(0);" id="menu-label"></a>
         
         <!-- Button to open/hide shortcuts -->
         <div class="hidden-on-desktop">
@@ -535,6 +536,9 @@
                         });
                     }
                 }
+                $('#menu-label').on('click',function(){
+                    $('#open-menu').click();
+                });
             });
         </script>
         {% block javascript_post '' %}

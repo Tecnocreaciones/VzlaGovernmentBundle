@@ -7,7 +7,7 @@
     <!-- This wrapper is used by several responsive layouts -->
     <div id="menu-content">
 
-        <header>
+        <header id="header_menu_title">
             {% if app.user.hasRole('ROLE_CLIENT') %}
                 {{ 'tecnocreaciones_vzla_government.role.client'|trans }}
             {% elseif app.user.hasRole('ROLE_ADMIN') %}

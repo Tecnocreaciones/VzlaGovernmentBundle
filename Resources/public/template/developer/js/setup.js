@@ -1873,7 +1873,7 @@
 		$('#open-menu').on('touchend click', function(event)
 		{
 			event.preventDefault();
-
+                        
 			// Check if valid touch-click event
 			if (!$.template.processTouchClick(this, event))
 			{
@@ -1906,7 +1906,7 @@
 					bod.scrollTop(previousScroll);
 				}
 				previousScroll = false;
-
+                                
 				// Restore class
 				bod.addClass('fixed-title-bar');
 			}
@@ -1917,7 +1917,7 @@
 
 		// Close drop-down menu
 		bod.children().on('click', function(event)
-		{
+		{       
 			// Check if open, and if the click is not on the menu or on the open button
 			if (bod.hasClass('menu-open') && !$(event.target).closest('#open-menu, #menu').length)
 			{
@@ -1972,6 +1972,17 @@
 		// When in tablet-portrait mode, we need to update the menu-content height manually
 		watchMenuSize = function()
 		{
+                        var headerTitle = $('#header_menu_title').html();
+                        var menuLabel = $('#menu-label');
+                        if($.template.mediaQuery.is('desktop') && $('body').hasClass('menu-hidden')){
+                            menuLabel.html(headerTitle);
+                            menuLabel.addClass('tag');
+                        }else{
+                            menuLabel.html('');
+                            menuLabel.removeClass('tag');
+                        }
+                        
+                        
 			// Only works if drop-down menu is opened in tablet-portrait mode
 			if (!bod.hasClass('menu-open') || !$.template.mediaQuery.is('tablet-portrait'))
 			{

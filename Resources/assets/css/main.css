@@ -111,14 +111,18 @@
     #title-bar ~ #menu, #title-bar ~ #shortcuts{
         top:0px;
     }
-    #title-bar + #open-menu {
-        top: 10px;
+    #title-bar + #open-menu,#menu-label {
+        top: 112px;
     }
     #title-bar ~ #main {
         margin-top: 10px;
     }
     .main-frontend {
         margin-left: 8px;
+    }
+    #menu-label {
+        z-index: 99;
+        margin-right: 34px;
     }
 }
 @media only screen and (max-width: 992px) {

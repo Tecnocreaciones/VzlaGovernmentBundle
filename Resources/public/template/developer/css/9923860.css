@@ -79,7 +79,7 @@
                                     margin-right: 68px;
                             }
 
-    #open-menu {
+    #open-menu,#menu-label {
             top: 0;
             right: 0;
             padding: 10px 8px 11px;
