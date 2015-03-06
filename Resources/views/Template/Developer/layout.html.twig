@@ -4,6 +4,8 @@
 {% endblock head_base %}
 
 {% block head_base_post %}
+<script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+<script src="{{ url('bazinga_jstranslation_js') }}"></script>
 <script type="text/javascript">
 /*
  AngularJS v1.2.26
@@ -25,7 +27,6 @@
         // load all of the dependencies asynchronously.
         var baseUrlDependencies = [
             {% javascripts 
-                   'bundles/bazingajstranslation/js/translator.min.js'
                    'bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/ng-table/ng-table.js'
                    'bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/ng-table-export/ng-table-export.js'
                    'bundles/tecnocreacionesvzlagovernment/template/developer/angular/app/bower_components/angular-route/angular-route.min.js'
@@ -39,7 +40,7 @@
             {% endjavascripts %}
         ];
         var baseDependecies = [
-          '{{ url('bazinga_jstranslation_js') }}'
+          
         ];
         baseDependecies = baseUrlDependencies.concat(baseDependecies);
         {% block dependenciesAsync %}
