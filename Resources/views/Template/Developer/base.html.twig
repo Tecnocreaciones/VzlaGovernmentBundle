@@ -136,7 +136,7 @@
         <div ng-controller="MainContentController" >
         <div id="message_browser" class="message-warning" style="display: none">
             <span class="icon-info"></span>&nbsp;
-            <span>Esta version del navegador no es compatible con el sistema.&nbsp;<a href="{{ path('template_support_browsers') }}">(Actualice su navegador)</a></span>
+            <span>Este navegador no es compatible con el sistema, recomendamos que use <a href="//www.google.com/chrome" target="_blank">Google Chrome</a> o <a href="//www.mozilla.org/firefox/" target="_blank">Mozilla Firefox</a>.&nbsp;<a href="{{ path('template_support_browsers') }}">(Actualice su navegador)</a></span>
             <span id="message_browser_close" class="icon-cross-round" style="float: right;margin-right: 20px;cursor: pointer"></span>
         </div>
         {% block content %}
@@ -520,7 +520,7 @@
                 chrome: 20,
                 firefox: 20,
                 safari: 5,
-                iexplorer: 8
+                iexplorer: 9
             };
             var brw = new Browser();
             $(document).ready(function(){
