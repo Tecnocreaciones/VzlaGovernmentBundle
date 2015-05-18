@@ -186,133 +186,17 @@
 
 {% macro delete_mini(url, message, tableIdRow = null) %}
 {% set idForm = url|hash %}
-    <a href="" class="button icon-trash with-tooltip confirm" onclick="openDeleteAjax('{{ url }}','{{ tableIdRow }}')" title="{{ 'tecnocreaciones_vzla_government.delete'|trans }}"></a>
-    
-    <script type="text/javascript">
-        function openDeleteAjax(url,tableIdRow)
-        {
-                $.modal.confirm('{{ message is empty ? 'tecnocreaciones_vzla_government.question.delete'|trans({},'messages') : message }}', function()
-                {
-                    $.ajax({
-                      type: "POST",
-                      url: url,
-                      data: { _method:'DELETE' }
-                    }).done(function(data){
-                        if(tableIdRow != ''){
-                            $('#'+tableIdRow).remove();
-                        }
-                        $.each(data.message,function(index,value){
-                            notify(value,'', {
-                                    system:		false,   
-                                    autoClose:		4000,
-                                    icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-success.png',
-                                    iconOutside:        false,
-                                    closeButton:        true,
-                                    showCloseOnHover:	false,
-                                    groupSimilar:	true
-                                });
-                        });
-                    }).error(function(response,textStatus,errorThrown){
-                        data = jQuery.parseJSON(response.responseText);
-                        if(data.status != undefined && data.status == 403){
-                           notify('{{ 'Permission Denied!'|trans({},'messages') }}','', {
-                                    system:		false,   
-                                    autoClose:		4000,
-                                    icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-error.png',
-                                    iconOutside:        false,
-                                    closeButton:        true,
-                                    showCloseOnHover:	false,
-                                    groupSimilar:	true
-                                });
-                        }
-                        $.each(data.message,function(index,value){
-                            notify(value,'', {
-                                    system:		false,   
-                                    autoClose:		4000,
-                                    icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-error.png',
-                                    iconOutside:        false,
-                                    closeButton:        true,
-                                    showCloseOnHover:	false,
-                                    groupSimilar:	true
-                                });
-                        });
-                    });
-
-                }, function()
-                {
-                        
-                },
-                {
-                    textConfirm: '{{ 'tecnocreaciones_vzla_government.yes'|trans }}',
-                    textCancel: '{{ 'tecnocreaciones_vzla_government.no'|trans }}'
-                });
-        };
-    </script>
+    <a href="" class="button icon-trash with-tooltip confirm" onclick="openDeleteAjax('{{ url }}','{{ tableIdRow }}','{{ message }}')" title="{{ 'tecnocreaciones_vzla_government.delete'|trans }}"></a>
+    {% import 'TecnocreacionesVzlaGovernmentBundle:Template:Developer/Macros/functions.html.twig' as functionsJs %}
+    {{ functionsJs.openDeleteAjax() }}
 {% endmacro %}
-{% macro delete_inner_table(url, message, tableIdRow = null) %}
-{% set idForm = url|hash %}
-    <a href="" class="button icon-trash with-tooltip confirm" onclick="openDeleteAjax('{{ url }}','{{ tableIdRow }}')">{{ 'tecnocreaciones_vzla_government.delete'|trans }}</a>
-    
-    <script type="text/javascript">
-        function openDeleteAjax(url,tableIdRow)
-        {
-                $.modal.confirm('{{ message is empty ? 'tecnocreaciones_vzla_government.question.delete'|trans({},'messages') : message }}', function()
-                {
-                    $.ajax({
-                      type: "POST",
-                      url: url,
-                      data: { _method:'DELETE' }
-                    }).done(function(data){
-                        if(tableIdRow != ''){
-                            $('#'+tableIdRow).remove();
-                        }
-                        $.each(data.message,function(index,value){
-                            notify(value,'', {
-                                    system:		false,   
-                                    autoClose:		4000,
-                                    icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-success.png',
-                                    iconOutside:        false,
-                                    closeButton:        true,
-                                    showCloseOnHover:	false,
-                                    groupSimilar:	true
-                                });
-                        });
-                    }).error(function(response,textStatus,errorThrown){
-                        data = jQuery.parseJSON(response.responseText);
-                        if(data.status != undefined && data.status == 403){
-                           notify('{{ 'Permission Denied!'|trans({},'messages') }}','', {
-                                    system:		false,   
-                                    autoClose:		4000,
-                                    icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-error.png',
-                                    iconOutside:        false,
-                                    closeButton:        true,
-                                    showCloseOnHover:	false,
-                                    groupSimilar:	true
-                                });
-                        }
-                        $.each(data.message,function(index,value){
-                            notify(value,'', {
-                                    system:		false,   
-                                    autoClose:		4000,
-                                    icon:               ConfApp.assetPath + 'bundles/tecnocreacionesvzlagovernment/template/developer/img/icons/icon-error.png',
-                                    iconOutside:        false,
-                                    closeButton:        true,
-                                    showCloseOnHover:	false,
-                                    groupSimilar:	true
-                                });
-                        });
-                    });
 
-                }, function()
-                {
-                        
-                },
-                {
-                    textConfirm: '{{ 'tecnocreaciones_vzla_government.yes'|trans }}',
-                    textCancel: '{{ 'tecnocreaciones_vzla_government.no'|trans }}'
-                });
-        };
-    </script>
+{% macro delete_inner_table(url, message, tableIdRow = null,parameters = {}) %}
+{% set deleteSuccessCallback = null %}
+{% set idForm = url|hash %}
+<a href="" class="button icon-trash with-tooltip confirm" onclick="openDeleteAjax('{{ url }}','{{ tableIdRow }}','{{ message }}',{{ parameters|json_encode() }})">{{ 'tecnocreaciones_vzla_government.delete'|trans }}</a>
+    {% import 'TecnocreacionesVzlaGovernmentBundle:Template:Developer/Macros/functions.html.twig' as functionsJs %}
+    {{ functionsJs.openDeleteAjax() }}
 {% endmacro %}
 
 {% macro delete(url, message, disabled=false, modal=true) %}
@@ -322,31 +206,15 @@
 </span>
 {% else %}
     {% set idForm = url|hash %}
-    <button type="button" class="button" onclick="openDelete('{{ idForm }}')">
+    <button type="button" class="button" onclick="openDelete('{{ idForm }}','{{ message }}')">
         <span class="button-icon red-gradient left-side"><span class="icon-trash"></span></span>
         {{ 'tecnocreaciones_vzla_government.delete'|trans }}
         <form action="{{ url }}" id="{{ idForm }}" method="post" novalidate>
             <input type="hidden" name="_method" value="DELETE">
         </form>
     </button>
-    <script type="text/javascript">
-        // Demo confirm
-        function openDelete(idForm)
-        {
-                $.modal.confirm('{{ message is empty ? 'tecnocreaciones_vzla_government.question.delete'|trans({},'messages') : message | raw }}', function()
-                {
-                    $('#'+idForm).submit();
-
-                }, function()
-                {
-                        
-                },
-                {
-                    textConfirm: '{{ 'tecnocreaciones_vzla_government.yes'|trans }}',
-                    textCancel: '{{ 'tecnocreaciones_vzla_government.no'|trans }}'
-                });
-        };
-    </script>
+    {% import 'TecnocreacionesVzlaGovernmentBundle:Template:Developer/Macros/functions.html.twig' as functionsJs %}
+    {{ functionsJs.openDeleteNormal() }}
 {% endif %}
 {% endmacro %}
 

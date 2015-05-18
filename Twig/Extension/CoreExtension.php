@@ -18,18 +18,21 @@ namespace Tecnocreaciones\Vzla\GovernmentBundle\Twig\Extension;
  */
 class CoreExtension extends \Twig_Extension
 {
-    
+    private $cacheRendered;
+    public function __construct() {
+        $this->cacheRendered = array();
+    }
     public function getFilters() {
         return array(
             new \Twig_SimpleFilter('hash', array($this, 'generateHash'), array('is_safe' => array('html'))),
         );
     }
     
-//    public function getFunctions() {
-//        return array(
-//            new \Twig_SimpleFunction('staticCall', array($this,'staticCall')),
-//        );
-//    }
+    public function getFunctions() {
+        return array(
+            new \Twig_SimpleFunction('isRender', array($this,'isRender')),
+        );
+    }
 //    
 //    function staticCall($class, $function, $args = array())
 //    {
@@ -37,6 +40,15 @@ class CoreExtension extends \Twig_Extension
 //            return call_user_func_array(array($class, $function), $args);
 //        return null;
 //    }
+    
+    public function isRender($name) 
+    {
+        if(in_array($name,$this->cacheRendered)){
+            return true;
+        }
+        $this->cacheRendered[] = $name;
+        return false;
+    }
     
     function generateHash($str) {
         return md5($str);
