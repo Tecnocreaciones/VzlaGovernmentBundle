@@ -53,6 +53,7 @@
     {% set translation_domain = 'messages' %}
     {% set content = 'messages' %}
     {% set icon = 'icon-pencil' %}
+    {% set textSubmit = 'sigtec.send'|trans({},'messages') %}
     {% if parameters['content'] is defined %}
         {% set content = parameters['content'] %}
     {% endif  %}
@@ -65,6 +66,9 @@
     {% if parameters['gradient'] is defined %}
         {% set gradient = parameters['gradient'] %}
     {% endif  %}
+    {% if parameters['textSubmit'] is defined %}
+        {% set textSubmit = parameters['textSubmit'] %}
+    {% endif  %}
     {% set idForm = url|hash %}
     <button type="button" class="button" onclick="openPopUp_{{ idForm }}('{{ idForm }}')">
         <span class="button-icon left-side {{ gradient }}"><span class="{{ icon }}"></span></span>
@@ -76,7 +80,7 @@
                 //$.modal.showForm(area,confirmFormModal,cancelFormModal,options);
                 $.modal.showForm(content,function(){
                     $('#'+idForm).submit();
-                },null,{title: '{{ message|trans({},translation_domain) }}' });
+                },null,{title: '{{ message|trans({},translation_domain) }}',textSubmit: '{{ textSubmit }}' });
             }
         </script>
 {% endmacro %}
