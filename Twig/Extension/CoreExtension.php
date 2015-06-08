@@ -18,10 +18,21 @@ namespace Tecnocreaciones\Vzla\GovernmentBundle\Twig\Extension;
  */
 class CoreExtension extends \Twig_Extension
 {
+    /**
+     * @var \Twig_Environment
+     */
+    protected $environment;
+    
     private $cacheRendered;
     public function __construct() {
         $this->cacheRendered = array();
     }
+    
+    public function initRuntime(\Twig_Environment $environment)
+    {
+        $this->environment = $environment;
+    }
+    
     public function getFilters() {
         return array(
             new \Twig_SimpleFilter('hash', array($this, 'generateHash'), array('is_safe' => array('html'))),
@@ -33,6 +44,19 @@ class CoreExtension extends \Twig_Extension
             new \Twig_SimpleFunction('isRender', array($this,'isRender')),
         );
     }
+    
+    /**
+     * Returns a list of functions to add to the existing list.
+     *
+     * @return array An array of functions
+     */
+    public function getTests()
+    {
+        return array(
+                new \Twig_SimpleTest('loaded', [$this, 'hasExtension']),
+        );
+    }
+    
 //    
 //    function staticCall($class, $function, $args = array())
 //    {
@@ -53,6 +77,16 @@ class CoreExtension extends \Twig_Extension
     function generateHash($str) {
         return md5($str);
     }
+    
+    /**
+     * @param string $name
+     * @return boolean
+     */
+    function hasExtension($name)
+    {
+        return $this->environment->hasExtension($name);
+    }
+
     
     public function getName() {
         return 'vzla_government_core_extension';

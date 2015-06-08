@@ -14,4 +14,6 @@
     </div>
 </div>
 <hr class="hr-line-vzla-red" style="margin-top:0px;margin-bottom: 4px;" />
-{{ locale_switcher(null,null,'TecnocreacionesVzlaGovernmentBundle:Template/Developer/Switcher:switcher_links.html.twig') }}
+{% if 'locale_switcher' is loaded %}
+    {{ locale_switcher(null,null,'TecnocreacionesVzlaGovernmentBundle:Template/Developer/Switcher:switcher_links.html.twig') }}
+{% endif %}
