@@ -94,8 +94,9 @@
         {% endif  %}
 
         <!-- Additional styles -->
-        {% block stylesheets_base '' %}
+        {% block stylesheets_base %}
             <link rel="stylesheet" href="{{ asset('bundles/tecnocreacionesvzlagovernment/jquey_ui/jquery-ui.min.css?v=1') }}">
+        {% endblock stylesheets_base %}
         {% block stylesheets '' %}
 
         <!-- JavaScript at bottom except for Modernizr -->
