@@ -278,6 +278,7 @@
 /* File types */
 .folder-close		{ background-image: url(../../img/fineFiles/64/_close.png); }
 .folder-docs		{ background-image: url(../../img/fineFiles/64/_documents.png); }
+.file-zip,.file-rar		{ background-image: url(../../img/fineFiles/64/_documents.png); }
 .folder-favs		{ background-image: url(../../img/fineFiles/64/_favorites.png); }
 .folder-image		{ background-image: url(../../img/fineFiles/64/_image.png); }
 .folder-movie		{ background-image: url(../../img/fineFiles/64/_movie.png); }
@@ -298,7 +299,7 @@
 .file-default		{ background-image: url(../../img/fineFiles/64/default.png); }
 .file-desktop		{ background-image: url(../../img/fineFiles/64/desktop.png); }
 .file-dll			{ background-image: url(../../img/fineFiles/64/dll.png); }
-.file-excel			{ background-image: url(../../img/fineFiles/64/excel.png); }
+.file-excel,.file-xls,.file-xlsx			{ background-image: url(../../img/fineFiles/64/excel.png); }
 .file-exe			{ background-image: url(../../img/fineFiles/64/exe.png); }
 .file-fon			{ background-image: url(../../img/fineFiles/64/fon.png); }
 .file-gif			{ background-image: url(../../img/fineFiles/64/gif.png); }
@@ -318,7 +319,7 @@
 .file-otf			{ background-image: url(../../img/fineFiles/64/otf.png); }
 .file-pdf			{ background-image: url(../../img/fineFiles/64/pdf.png); }
 .file-png			{ background-image: url(../../img/fineFiles/64/png.png); }
-.file-powerpoint	{ background-image: url(../../img/fineFiles/64/powerpoint.png); }
+.file-powerpoint,.file-pptx,.file-ppt	{ background-image: url(../../img/fineFiles/64/powerpoint.png); }
 .file-real			{ background-image: url(../../img/fineFiles/64/real.png); }
 .file-reg			{ background-image: url(../../img/fineFiles/64/reg.png); }
 .file-rtf			{ background-image: url(../../img/fineFiles/64/rtf.png); }
@@ -331,7 +332,7 @@
 .file-wav			{ background-image: url(../../img/fineFiles/64/wav.png); }
 .file-wma			{ background-image: url(../../img/fineFiles/64/wma.png); }
 .file-wmv			{ background-image: url(../../img/fineFiles/64/wmv.png); }
-.file-word			{ background-image: url(../../img/fineFiles/64/word.png); }
+.file-word,.file-docx,.file-doc			{ background-image: url(../../img/fineFiles/64/word.png); }
 .file-xml			{ background-image: url(../../img/fineFiles/64/xml.png); }
 .file-xsl			{ background-image: url(../../img/fineFiles/64/xsl.png); }
 
