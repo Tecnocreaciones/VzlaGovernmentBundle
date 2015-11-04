@@ -307,7 +307,7 @@
 .file-image			{ background-image: url(../../img/fineFiles/64/other_image.png); }
 .file-ini			{ background-image: url(../../img/fineFiles/64/ini.png); }
 .file-jar			{ background-image: url(../../img/fineFiles/64/jar.png); }
-.file-jpg			{ background-image: url(../../img/fineFiles/64/jpg.png); }
+.file-jpg,.file-jpeg			{ background-image: url(../../img/fineFiles/64/jpg.png); }
 .file-js			{ background-image: url(../../img/fineFiles/64/js.png); }
 .file-log			{ background-image: url(../../img/fineFiles/64/log.png); }
 .file-mov			{ background-image: url(../../img/fineFiles/64/mov.png); }
