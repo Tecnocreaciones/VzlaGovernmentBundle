@@ -183,10 +183,10 @@
             </div>
             {% include 'TecnocreacionesVzlaGovernmentBundle:Block:footer.html.twig' %}
             {% block dialog %}
-                <div id="dialog-confirm" title="{$ dialog.confirm.title $}">
+                <div ng-cloak id="dialog-confirm" title="{$ dialog.confirm.title $}">
                     <p ng-if="dialog.confirm.open"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>{$ dialog.confirm.content $}</p>
                 </div>
-                <div id="dialog-form">
+                <div ng-cloak id="dialog-form">
                     <div id="div-template" ng-include="template.url" onload="templateLoad(template)" ></div>
                 </div>
             {% endblock dialog %}
