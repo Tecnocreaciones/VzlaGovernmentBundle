@@ -105,6 +105,8 @@
         <link rel="shortcut icon" href="{{ asset(templateConfig.getTemplateOption('developer','logo')['icon_png']) }}">
         <!-- For everything else -->
         <link rel="shortcut icon" href="{{ asset(templateConfig.getTemplateOption('developer','logo')['icon_ico']) }}">
+        <link rel="SHORTCUT ICON" href="{{ asset(templateConfig.getTemplateOption('developer','logo')['icon_ico']) }}">
+        <link type="image/x-icon" rel="shortcut icon" href="{{ asset(templateConfig.getTemplateOption('developer','logo')['icon_ico']) }}" >
         <!-- For retina screens -->
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('bundles/tecnocreacionesvzlagovernment/template/developer/img/favicons/apple-touch-icon-retina.png') }}">
         <!-- For iPad 1-->
@@ -128,9 +130,6 @@
         <meta name="application-name" content="">
         <meta name="msapplication-tooltip" content="Cross-platform admin template.">
         <meta name="msapplication-starturl" content="">
-        <!-- These custom tasks are examples, you need to edit them to show actual pages -->
-        <meta name="msapplication-task" content="name=Agenda;action-uri=http://www.display-inline.fr/demo/developr/agenda.html;icon-uri=http://www.display-inline.fr/demo/developr/img/favicons/favicon.ico">
-        <meta name="msapplication-task" content="name=My profile;action-uri=http://www.display-inline.fr/demo/developr/profile.html;icon-uri=http://www.display-inline.fr/demo/developr/img/favicons/favicon.ico">
     </head>
 
     <body ng-controller="MainController" class="clearfix with-menu ">

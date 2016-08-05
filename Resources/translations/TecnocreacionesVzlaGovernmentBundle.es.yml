@@ -47,7 +47,7 @@ tecnocreaciones_vzla_government:
                                 registed_at: Registrado el
                                 last_login: Última visita
                                 groups: Grupos
-                                update_password: Actualizar contraseña
+                                update_password: Cambiar contraseña
                                 update: Actualizar
                             
                             hello: Hola
