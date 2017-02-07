@@ -1557,15 +1557,14 @@
 				// Icon class
 				var name = /icon-([^ ]+)/.exec(this.className)[1],
 					element = $(this);
-
 				// If valid icon name
 				if (iconMap[name])
 				{
 					// Remove existing icon
-					element.children('.icon-font:first').remove();
+//					element.children('.icon-font:first').remove();
 
 					// Create replacement
-					element.prepend('<span class="font-icon'+(element.is(':empty') ? ' empty' : '')+'">'+iconMap[name]+'</span>');
+//					element.prepend('<span class="font-icon'+(element.is(':empty') ? ' empty' : '')+'">'+iconMap[name]+'</span>');
 				}
 			});
 		}
